@@ -5,5 +5,12 @@
   </head>
   <body>
     <h1>About</h1>
+    <div id="button">Generate</div>
+    <div id="result"></div>
   </body>
+  <script>
+    document.getElementById("button").onclick = function(event) {
+      document.getElementById("result").innerHTML = Math.random();
+    };
+  </script>
 </html>
