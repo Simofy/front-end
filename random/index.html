@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random name generator</title>
+    <style>
+      .custom-button {
+        width: 100px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: solid 2px thistle;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .name-container {
+        border: solid 2px black;
+        width: 100px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Random name generator</h1>
+    <button id="button" class="custom-button">Generate</button>
+    <div id="result" class="name-container"></div>
+  </body>
+  <script>
+    const list = [
+      "Augustas",
+      "Benjaminas",
+      "Deimantė",
+      "Dovilė",
+      "Ernestas",
+      "Gabrielius",
+      "Indrė",
+      "Iveta",
+      "Justas",
+      "Justina",
+      "Liudas",
+      "Raimondas",
+      "Rolandas",
+      "Simona",
+      "Vilius",
+    ];
+
+    document.getElementById("button").onclick = function (event) {
+      document.getElementById("result").innerHTML = list[Math.floor(
+        Math.random() * list.length
+      )];
+    };
+  </script>
+</html>
