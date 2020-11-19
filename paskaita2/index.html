@@ -11,9 +11,165 @@
 </head>
 
 <body class="p-demo">
-  <div>
+  <style>
+    .custom-table {
+      border-collapse: collapse;
+    }
+    .custom-table,
+    .custom-table td,
+    .custom-table th {
+      border: 1px solid black;
+    }
+
+    .table-foot tr > th {
+      color: red;
+    }
+
+  </style>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th rowspan="2">Pavadinimai</th>
+        <th colspan="2">Apie</th>
+      <tr>
+        <th>Tipas</th>
+        <th>Svoris</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="2">Pomidoras</td>
+        <td>Pomidoras</td>
+        <td >100g</td>
+      </tr>
+      <tr>
+        <td>Agurkas</td>
+        <td colspan="2">1g</td>
+      </tr>
+    </tbody>
+    <tfoot class="table-foot">
+      <tr>
+        <th>Stulpelis 1</th>
+        <th>Stulpelis 2</th>
+      </tr>
+    </tfoot>
+  </table>
+
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
+  <style>
+    .form-style > label {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+  </style>
+  
+  <form
+  id="form"
+    class="form-style" action="/submit-form">
+    <label>
+      Ar turi maisa:
+      <input name="maisas" type="checkbox">
+    </label>
+    <label>
+      Color:
+      <input type="color">
+    </label>
+    <label>
+      Date:
+      <input type="date">
+    </label>
+    <label>
+      datetime:
+      <input type="datetime">
+    </label>
+    <label>
+      File:
+      <input type="file">
+    </label>
+    <label>
+      Hidden:
+      <input type="hidden" >
+    </label>
+    <label>
+      File:
+      <input type="image">
+    </label>
+    <label>
+      Number:
+      <input type="number">
+    </label>
+    <label>
+      Password:
+      <input type="password">
+    </label>
+    <label>
+      Radio:
+      <input name="a" type="radio" value="1">
+      <input name="a" type="radio" value="2">
+    </label>
+    <label>
+      Range:
+      <input type="range" step="5">
+    </label>
+    <label>
+      Text:
+      <input type="text" step="5">
+    </label>
+    <label>
+      Kitas labelis:
+      <input name="email" maxlength="5" required type="email" placeholder="Email">
+    </label>
+    <select>
+      <option>Vyno</option>
+      <option>Atidarytuvas</option>
+    </select>
+    <textarea placeholder="Text">Place holder text</textarea>
+    <button type="submit">Submit</button>
+
+  </form>
+
+  <script>
+    // let a = document.getElementById('form');
+    // a.onsubmit = function(e) {
+    //   e.preventDefault();
+    // }
+
+  </script>
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div class="header">
     (TAG abbr) Text before
     <abbr>Tag abbr</abbr>
+    <h1></h1>
     text after
   </div>
 
