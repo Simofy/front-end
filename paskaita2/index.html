@@ -15,16 +15,16 @@
     .custom-table {
       border-collapse: collapse;
     }
+
     .custom-table,
     .custom-table td,
     .custom-table th {
       border: 1px solid black;
     }
 
-    .table-foot tr > th {
+    .table-foot tr>th {
       color: red;
     }
-
   </style>
   <table class="custom-table">
     <thead>
@@ -40,7 +40,7 @@
       <tr>
         <td rowspan="2">Pomidoras</td>
         <td>Pomidoras</td>
-        <td >100g</td>
+        <td>100g</td>
       </tr>
       <tr>
         <td>Agurkas</td>
@@ -71,7 +71,7 @@
   <br />
 
   <style>
-    .form-style > label {
+    .form-style>label {
       width: 100%;
       display: flex;
       justify-content: flex-start;
@@ -79,10 +79,8 @@
       margin-bottom: 1rem;
     }
   </style>
-  
-  <form
-  id="form"
-    class="form-style" action="/submit-form">
+
+  <form id="form" class="form-style" action="/submit-form">
     <label>
       Ar turi maisa:
       <input name="maisas" type="checkbox">
@@ -105,7 +103,7 @@
     </label>
     <label>
       Hidden:
-      <input type="hidden" >
+      <input type="hidden">
     </label>
     <label>
       File:
@@ -134,7 +132,7 @@
     </label>
     <label>
       Kitas labelis:
-      <input name="email" maxlength="5" required type="email" placeholder="Email">
+      <input name="email" maxlength="5" type="email" placeholder="Email">
     </label>
     <select>
       <option>Vyno</option>
@@ -144,6 +142,13 @@
     <button type="submit">Submit</button>
 
   </form>
+  <script>
+    const form = document.getElementById('form');
+    form.onsubmit = function(e) {
+      e.preventDefault();
+    }
+  </script>
+
 
   <img src="" alt="">
 
@@ -155,7 +160,7 @@
     <source src="https://youtu.be/O_MkryobZlw" type="video/mp4">
     Your browser does not support HTML video.
   </audio>
-  <iframe width="738" height="309" src="https://www.google.com" ></iframe>
+  <iframe width="738" height="309" src="https://www.google.com"></iframe>
   <svg width="100" height="100">
     <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
   </svg>
@@ -167,205 +172,311 @@
 
   </script>
 
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <div class="header">
-    (TAG abbr) Text before
-    <abbr>Tag abbr</abbr>
-    <h1></h1>
-    text after
-  </div>
+  <table>
+    <thead>
+      <tr>
+        <th rowspan="2">A</th>
+        <th colspan="2">B</th>
+      <tr>
+        <th>Tipas</th>
+        <th>Svoris</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="2">Pomidoras</td>
+        <td>Pomidoras</td>
+        <td>100g</td>
+      </tr>
+      <tr>
+        <td>Agurkas</td>
+        <td colspan="2">1g</td>
+      </tr>
+    </tbody>
+    <tfoot class="table-foot">
+      <tr>
+        <th>Stulpelis 1</th>
+        <th>Stulpelis 2</th>
+      </tr>
+    </tfoot>
+  </table>
 
-  <div>
-    (TAG address) Text before
-    <address>Tag address</address>
-    text after
-  </div>
+  <style>
+    p {
 
-  <div>
-    (TAG b) Text before
-    <b>Tag b</b>
-    text after
-  </div>
+      /* font-style: italic; */
+      text-decoration: line-through;
 
-  <div>
-    (TAG blockquote) Text before
-    <blockquote>Tag blockquote</blockquote>
-    text after
-  </div>
+      font-weight: bold;
+    }
+  </style>
+  <p>Pavizdys</p>
 
-  <div>
-    (TAG cite) Text before
-    <cite>Tag cite</cite>
-    text after
-  </div>
+  <style>
+    .stilius {
+      font-style: italic;
+      border-bottom: none;
+    }
 
-  <div>
-    (TAG code) Text before
-    <code>Tag code</code>
-    text after
-  </div>
+    .dummy-span {
+      font-style: italic;
+      font-weight: bold;
+      text-decoration: line-through;
+      background-color: yellow;
+    }
+  </style>
 
-  <div>
-    (TAG del) Text before
-    <del>Tag del</del>
-    text after
-  </div>
 
-  <div>
-    (TAG dfn) Text before
-    <dfn>Tag dfn</dfn>
-    text after
-  </div>
+  <div class="stilius"><del>Pavyzdys</del></div>
+  <span class="dummy-span">Pavizdys</span>
 
-  <div>
-    (TAG em) Text before
-    <em>Tag em</em>
-    text after
-  </div>
+      <br />
+      <br />
+      <table class="test">
+        <tr>
+            <th>1</th>
+            <th colspan="2">2</th>
+            <th>1</th>
+            <th>1</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td colspan="2">2</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td colspan="2">2</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td colspan="2" rowspan="2">2x2</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+    </table>
 
-  <div>
-    (TAG i) Text before
-    <i>Tag i</i>
-    text after
-  </div>
+    <style>
+        .test,
+        .test th,
+        .test td {
+            border: 2px black solid;
+            border-collapse: collapse;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div class="header">
+        (TAG abbr) Text before
+        <abbr>Tag abbr</abbr>
+        <h1></h1>
+        text after
+      </div>
 
-  <div>
-    (TAG ins) Text before
-    <ins>Tag ins</ins>
-    text after
-  </div>
+      <div>
+        (TAG address) Text before
+        <address>Tag address</address>
+        text after
+      </div>
 
-  <div>
-    (TAG kbd) Text before
-    <kbd>Tag kbd</kbd>
-    text after
-  </div>
+      <div>
+        (TAG b) Text before
+        <b>Tag b</b>
+        text after
+      </div>
 
-  <div>
-    (TAG mark) Text before
-    <mark>Tag mark</mark>
-    text after
-  </div>
+      <div>
+        (TAG blockquote) Text before
+        <blockquote>Tag blockquote</blockquote>
+        text after
+      </div>
 
-  <div>
-    (TAG meter) Text before
-    <meter>Tag meter</meter>
-    text after
-  </div>
+      <div>
+        (TAG cite) Text before
+        <cite>Tag cite</cite>
+        text after
+      </div>
 
-  <div>
-    (TAG pre) Text before
-    <pre>Tag pre</pre>
-    text after
-  </div>
+      <div>
+        (TAG code) Text before
+        <code>Tag code</code>
+        text after
+      </div>
 
-  <div>
-    (TAG progress) Text before
-    <progress>Tag progress</progress>
-    text after
-  </div>
+      <div>
+        (TAG del) Text before
+        <del>Tag del</del>
+        text after
+      </div>
 
-  <div>
-    (TAG q) Text before
-    <q>Tag q</q>
-    text after
-  </div>
+      <div>
+        (TAG dfn) Text before
+        <dfn>Tag dfn</dfn>
+        text after
+      </div>
 
-  <div>
-    (TAG rp) Text before
-    <rp>Tag rp</rp>
-    text after
-  </div>
+      <div>
+        (TAG em) Text before
+        <em>Tag em</em>
+        text after
+      </div>
 
-  <div>
-    (TAG rt) Text before
-    <rt>Tag rt</rt>
-    text after
-  </div>
+      <div>
+        (TAG i) Text before
+        <i>Tag i</i>
+        text after
+      </div>
 
-  <div>
-    (TAG ruby) Text before
-    <ruby>Tag ruby</ruby>
-    text after
-  </div>
+      <div>
+        (TAG ins) Text before
+        <ins>Tag ins</ins>
+        text after
+      </div>
 
-  <div>
-    (TAG s) Text before
-    <s>Tag s</s>
-    text after
-  </div>
+      <div>
+        (TAG kbd) Text before
+        <kbd>Tag kbd</kbd>
+        text after
+      </div>
 
-  <div>
-    (TAG samp) Text before
-    <samp>Tag samp</samp>
-    text after
-  </div>
+      <div>
+        (TAG mark) Text before
+        <mark>Tag mark</mark>
+        text after
+      </div>
 
-  <div>
-    (TAG small) Text before
-    <small>Tag small</small>
-    text after
-  </div>
+      <div>
+        (TAG meter) Text before
+        <meter>Tag meter</meter>
+        text after
+      </div>
 
-  <div>
-    (TAG strong) Text before
-    <strong>Tag strong</strong>
-    text after
-  </div>
+      <div>
+        (TAG pre) Text before
+        <pre>Tag pre</pre>
+        text after
+      </div>
 
-  <div>
-    (TAG sub) Text before
-    <sub>Tag sub</sub>
-    text after
-  </div>
+      <div>
+        (TAG progress) Text before
+        <progress>Tag progress</progress>
+        text after
+      </div>
 
-  <div>
-    (TAG sup) Text before
-    <sup>Tag sup</sup>
-    text after
-  </div>
+      <div>
+        (TAG q) Text before
+        <q>Tag q</q>
+        text after
+      </div>
 
-  <div>
-    (TAG template) Text before
-    <template>Tag template</template>
-    text after
-  </div>
+      <div>
+        (TAG rp) Text before
+        <rp>Tag rp</rp>
+        text after
+      </div>
 
-  <div>
-    (TAG time) Text before
-    <time>Tag time</time>
-    text after
-  </div>
+      <div>
+        (TAG rt) Text before
+        <rt>Tag rt</rt>
+        text after
+      </div>
 
-  <div>
-    (TAG u) Text before
-    <u>Tag u</u>
-    text after
-  </div>
+      <div>
+        (TAG ruby) Text before
+        <ruby>Tag ruby</ruby>
+        text after
+      </div>
 
-  <div>
-    (TAG var) Text before
-    <var>Tag var</var>
-    text after
-  </div>
+      <div>
+        (TAG s) Text before
+        <s>Tag s</s>
+        text after
+      </div>
 
-  <div>
-    (TAG wbr) Text before
-    <wbr>Tag wbr</wbr>
-    text after
-  </div>
+      <div>
+        (TAG samp) Text before
+        <samp>Tag samp</samp>
+        text after
+      </div>
+
+      <div>
+        (TAG small) Text before
+        <small>Tag small</small>
+        text after
+      </div>
+
+      <div>
+        (TAG strong) Text before
+        <strong>Tag strong</strong>
+        text after
+      </div>
+
+      <div>
+        (TAG sub) Text before
+        <sub>Tag sub</sub>
+        text after
+      </div>
+
+      <div>
+        (TAG sup) Text before
+        <sup>Tag sup</sup>
+        text after
+      </div>
+
+      <div>
+        (TAG template) Text before
+        <template>Tag template</template>
+        text after
+      </div>
+
+      <div>
+        (TAG time) Text before
+        <time>Tag time</time>
+        text after
+      </div>
+
+      <div>
+        (TAG u) Text before
+        <u>Tag u</u>
+        text after
+      </div>
+
+      <div>
+        (TAG var) Text before
+        <var>Tag var</var>
+        text after
+      </div>
+
+      <div>
+        (TAG wbr) Text before
+        <wbr>Tag wbr</wbr>
+        text after
+      </div>
 </body>
 
 </html>
