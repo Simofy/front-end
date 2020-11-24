@@ -1,0 +1,90 @@
+<html>
+
+<head>
+  <title>Paskaita 3</title>
+  <link>
+  <style>
+    .custom-table,
+    .custom-table td,
+    .custom-table th {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    .custom-table td {
+      width: 64px;
+    }
+
+    tr:nth-child(1),
+    tr:nth-child(4) {
+      background-color: red;
+    }
+
+    #table-only.custom-table .only-this-one>td:hover::after {
+      background-color: blueviolet;
+      content: "testing";
+    }
+
+    .styled-input {
+      color: red;
+      margin-bottom: 24px;
+    }
+    :focus {
+      outline: none;
+    }
+
+    .styled-input:focus {
+      background-color: rgba(245, 245, 220, .4);
+    }
+  </style>
+</head>
+
+<body>
+  <input class="styled-input" />
+  <table class="custom-table">
+    <tbody>
+      <tr>
+        <td tabindex="1">a.1</td>
+        <td>a.2</td>
+        <td>a.3</td>
+      </tr>
+    </tbody>
+  </table>
+  <table id="table-only" class="custom-table">
+    <tbody>
+      <tr class="only-this-one">
+        <td tabindex="2">a.1</td>
+        <td>a.2</td>
+        <td>a.3</td>
+      </tr>
+      <tr>
+        <td tabindex="1">b.1</td>
+        <td>b.2</td>
+        <td>b.3</td>
+      </tr>
+      <tr>
+        <td>c.1</td>
+        <td>c.2</td>
+        <td>c.3</td>
+      </tr>
+      <tr>
+        <td tabindex="1">d.1</td>
+        <td>d.2</td>
+        <td>d.3</td>
+      </tr>
+      <tr>
+        <td>e.1</td>
+        <td>e.2</td>
+        <td>e.3</td>
+      </tr>
+      <tr>
+        <td>f.1</td>
+        <td>f.2</td>
+        <td>f.3</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+
+</html>
