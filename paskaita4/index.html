@@ -10,11 +10,12 @@
       width: 100%;
       height: calc(100vh * 6);
       color: black;
+      width: 100%;
     }
 
-    /* body {
-      background-image: linear-gradient(#ff0000, yellow, blue);
-    } */
+    body {
+      background-image: linear-gradient(rgba(255, 0, 0, .2), rgba(255, 255, 0, .1), blue);
+    }
 
     .container:nth-child(odd) {
       background-color: #faf2;
@@ -25,13 +26,18 @@
     }
 
     .container {
-      height: 100vh;
+      height: 97vh;
 
       text-align: center;
       /* FLEX */
       display: flex;
       justify-content: center;
       align-items: center;
+      content: attr(spalva);
+    }
+
+    .container::after {
+      content: attr(spalva);
     }
 
     .klase1 {
@@ -42,18 +48,20 @@
       border: solid 2px goldenrod;
       border-radius: 16px;
 
+      background-color: rgba(255, 0, 0, .1);
+
       /* FLEX */
-      display: flex;
-      flex-direction: column;
+      /* display: flex;
+      flex-direction: column; */
     }
 
     .klase2 {
 
       /* FLEX */
-      display: flex;
+      /* display: flex;
       justify-content: center;
       align-items: center;
-      flex: 1;
+      flex: 1; */
     }
 
     .pvz-4,
@@ -68,27 +76,85 @@
       flex-direction: column;
     }
   </style>
-  <div class="container">
+  <div class="container" spalva="red">
     <style>
-      .klase1 .klase2 {
-        background-color: beige;
+      html {
+        font-size: 18px;
+        background-image: url(/images/1.jpg);
+        background-attachment: fixed;
       }
 
       .klase1.klase2 {
-        background-color: blueviolet;
+        height: 400px;
+      }
+
+      .klase2 {
+        background-color: beige;
+        /* font-size: .6rem; */
+        height: 24px;
+        line-height: 1rem;
+        transition: height 100ms linear;
+        overflow: auto;
+        margin: 16px;
+      }
+
+      .klase2:hover {
+        height: 110px;
+      }
+      .klase2 > span {
+        position: sticky;
+        top: 0;
+        background-color: brown;
+      }
+
+      .klase2:hover>div {
+        display: block;
+      }
+
+      .klase2>div {
+        width: 100%;
+        height: 100px;
+        background-color: aquamarine;
+        display: none;
+      }
+
+      .klase2>div>span {
+        display: block;
+        width: 100%;
+        background-color: beige;
+        margin: 8px 0;
       }
     </style>
     <div class="klase1">
       Tekstas Isoreje
       <div class="klase2">
-        Tekstas viduje
+        <span>
+          Tekstas viduje
+        </span>
+        <div>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>4</span>
+          <span>4</span>
+          <span>4</span>
+          <span>4</span>
+        </div>
       </div>
     </div>
   </div>
   <div class="container">
     <style>
       /* element1 > element2 */
-      .pvz-3 {}
+      .pvz-3>span {
+        font-weight: bold;
+        border: solid red 2px;
+      }
+
+      .pvz-3>span>span {
+        color: red;
+      }
     </style>
     <p class="pvz-3">
       Sed ut perspiciatis unde omnis iste natus error sit
@@ -138,7 +204,13 @@
     <style>
       ul+table {}
 
-      ul~table {}
+      ul~table {
+        border-color: blue;
+      }
+
+      table {
+        border: solid red 2px;
+      }
     </style>
     <p>Test text</p>
     <ul>
@@ -172,32 +244,74 @@
         </tr>
       </tbody>
     </table>
+    <table>
+      <tbody>
+        <tr>
+          <td>Cat</td>
+          <td>Bob</td>
+          <td>Is</td>
+          <td>My</td>
+          <td>Uncle</td>
+        </tr>
+        <tr>
+          <td>Cat</td>
+          <td>Bob</td>
+          <td>Is</td>
+          <td>My</td>
+          <td>Uncle</td>
+        </tr>
+        <tr>
+          <td>Cat</td>
+          <td>Bob</td>
+          <td>Is</td>
+          <td>My</td>
+          <td>Uncle</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   <div class="container pvz-5">
     <style>
-      .pvz-5 input[type=text] {}
+      .pvz-5 input[type=text] {
+        border: solid green 2px;
+      }
 
-      .pvz-5 input[placeholder~=Dog] {}
+      .pvz-5 input[placeholder~=Dog] {
+        border: solid red 2px;
+      }
 
-      .pvz-5 input[name|=text] {}
+      .pvz-5 input[name|=text] {
+        border: solid 3px violet;
+      }
 
-      .pvz-5 input[placeholder^=C] {}
+      .pvz-5 input[placeholder^=C] {
+        color: red;
+      }
 
-      .pvz-5 input[name$=t] {}
+      .pvz-5 input[name$=-st] {
+        border-radius: 24px;
+      }
 
-      .pvz-5 input[type*=ex] {}
+      .pvz-5 input[type*=EX] {
+        margin-left: 24px;
+      }
+      /* _________________ */
+      /* a {
+        text-decoration: none;
+      }
+
+      a[href^="https://"] {
+        color: red;
+      } */
+
+      div > a:not([href="https://google.com"]) {
+        color: red;
+      }
     </style>
-    <form>
-      <input type="text" name="text">
-      <input type="email" name="text-address" placeholder="Cat">
-      <input type="password" name="text-password" placeholder="Dog">
-      <input type="text" name="test" placeholder="Cow">
-      <input type="text">
-    </form>
     <div>
       <a href="https://google.com" target="_blank">Google</a>
-      <a href="https://google.lt">Google</a>
-      <a href="https://google.co.uk">Google</a>
+      <a href="https://google.lt" target="_blank">Google</a>
+      <a href="https://google.co.uk" target="_blank">Google</a>
       <a href="http://google.com" target="_blank">Google</a>
     </div>
 

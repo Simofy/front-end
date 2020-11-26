@@ -28,23 +28,26 @@
     </tr>
     <tr>
       <td>1</td>
-      <td class="hover" colspan="2">2</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td class="hover" colspan="2" rowspan="2">2x2</td>
-      <td>1</td>
+      <td class="dont-color-red" colspan="2">2</td>
+      <td id="dont-color-red">1</td>
       <td>1</td>
     </tr>
     <tr>
+      <td id="dont-color-red">1</td>
+      <td class="dont-color-red" colspan="2" rowspan="2">
+        <span rowspan="2">2x2</span>
+      </td>
       <td>1</td>
+      <td rowspan="2">1</td>
+    </tr>
+    <tr>
       <td>1</td>
-      <td>1</td>
+      <td id="dont-color-red">1</td>
+      <td class="dont-color-red">1</td>
     </tr>
   </table>
-
+  <span rowspan="2">TEST</span>
+  <!-- TESTING -->
   <style>
     .test,
     .test th,
@@ -56,6 +59,35 @@
       vertical-align: top;
       text-align: center;
       position: relative;
+    }
+
+    /* td[colspan="2"], td {
+      border: red dashed 3px;
+    } */
+
+    td[colspan="2"]:not([rowspan]) {
+      background-color: azure;
+      border: dashed red 4px;
+    }
+    
+    td[colspan="2"][rowspan="2"] {
+      background-color: green;
+      font-size: 40;
+    }
+
+    /* td:not(.dont-color-red) {
+      color: red;
+    }
+    */
+
+    .test tr {
+      height: 60px;
+      background-color: red;
+      transition: height 2s linear 500ms;
+      /* transition-delay: 500ms;
+      transition-property: height;
+      transition-duration: 2s;
+      transition-timing-function: linear; */
     }
 
     .test tr:hover {
