@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: calc(100vh * 6);
+      color: black;
+    }
+
+    /* body {
+      background-image: linear-gradient(#ff0000, yellow, blue);
+    } */
+
+    .container:nth-child(odd) {
+      background-color: #faf2;
+    }
+
+    .container:nth-child(even) {
+      background-color: #afa2;
+    }
+
+    .container {
+      height: 100vh;
+
+      text-align: center;
+      /* FLEX */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .klase1 {
+      width: 150px;
+      margin: auto;
+      height: 150px;
+      padding: 16px;
+      border: solid 2px goldenrod;
+      border-radius: 16px;
+
+      /* FLEX */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .klase2 {
+
+      /* FLEX */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+    }
+
+    .pvz-4,
+    .pvz-5 {
+      text-align: left;
+      justify-content: space-evenly;
+    }
+
+    .pvz-5 div,
+    .pvz-5 form {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+  <div class="container">
+    <style>
+      .klase1 .klase2 {
+        background-color: beige;
+      }
+
+      .klase1.klase2 {
+        background-color: blueviolet;
+      }
+    </style>
+    <div class="klase1">
+      Tekstas Isoreje
+      <div class="klase2">
+        Tekstas viduje
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <style>
+      /* element1 > element2 */
+      .pvz-3 {}
+    </style>
+    <p class="pvz-3">
+      Sed ut perspiciatis unde omnis iste natus error sit
+      <span>
+        voluptatem accusantium doloremque
+      </span>
+      laudantium,
+      totam rem
+      aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+      architecto beatae vitae dicta sunt explicabo. Nemo
+      enim ipsam voluptatem quia
+      <span>
+        <span>voluptas</span>
+        sit aspernatur
+      </span>
+      aut odit aut fugit, sed quia
+      consequuntur magni
+      dolores eos qui
+      ratione voluptatem sequi nesciunt.
+      <span>
+        Neque porro
+        <span>
+          quisquam est,
+        </span>
+        qui dolorem ipsum quia
+      </span>
+      dolor sit amet, consectetur,
+      adipisci velit, sed quia non numquam eius modi tempora
+      <span>incidunt ut labore</span>
+      et dolore magnam aliquam
+      quaerat
+      voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
+      aliquid ex ea commodi consequatur?
+      <span>
+        Quis autem vel eum iure reprehenderit
+      </span>
+      qui in ea voluptate velit
+      esse quam nihil
+      molestiae
+      <span>
+        consequatur, vel illum qui dolorem
+      </span>
+      eum fugiat quo voluptas nulla pariatur?
+    </p>
+  </div>
+  <div class="container pvz-4">
+    <style>
+      ul+table {}
+
+      ul~table {}
+    </style>
+    <p>Test text</p>
+    <ul>
+      <li>qui in ea voluptate velit</li>
+      <li>esse quam nihil</li>
+      <li>molestiae</li>
+      <li>consequatur, vel illum</li>
+    </ul>
+    <table>
+      <tbody>
+        <tr>
+          <td>Cat</td>
+          <td>Bob</td>
+          <td>Is</td>
+          <td>My</td>
+          <td>Uncle</td>
+        </tr>
+        <tr>
+          <td>Cat</td>
+          <td>Bob</td>
+          <td>Is</td>
+          <td>My</td>
+          <td>Uncle</td>
+        </tr>
+        <tr>
+          <td>Cat</td>
+          <td>Bob</td>
+          <td>Is</td>
+          <td>My</td>
+          <td>Uncle</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container pvz-5">
+    <style>
+      .pvz-5 input[type=text] {}
+
+      .pvz-5 input[placeholder~=Dog] {}
+
+      .pvz-5 input[name|=text] {}
+
+      .pvz-5 input[placeholder^=C] {}
+
+      .pvz-5 input[name$=t] {}
+
+      .pvz-5 input[type*=ex] {}
+    </style>
+    <form>
+      <input type="text" name="text">
+      <input type="email" name="text-address" placeholder="Cat">
+      <input type="password" name="text-password" placeholder="Dog">
+      <input type="text" name="test" placeholder="Cow">
+      <input type="text">
+    </form>
+    <div>
+      <a href="https://google.com" target="_blank">Google</a>
+      <a href="https://google.lt">Google</a>
+      <a href="https://google.co.uk">Google</a>
+      <a href="http://google.com" target="_blank">Google</a>
+    </div>
+
+  </div>
+</body>
+
+</html>
