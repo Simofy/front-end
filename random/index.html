@@ -1,53 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Random name generator</title>
-    <style>
-      .custom-button {
-        width: 100px;
-        height: 45px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: solid 2px thistle;
-        border-radius: 6px;
-        cursor: pointer;
-      }
-      .name-container {
-        border: solid 2px black;
-        width: 100px;
-        height: 200px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Random name generator</h1>
-    <button id="button" class="custom-button">Generate</button>
-    <div id="result" class="name-container"></div>
-  </body>
-  <script>
-    const list = [
-      "Augustas",
-      "Benjaminas",
-      "Deimantė",
-      "Dovilė",
-      "Ernestas",
-      "Gabrielius",
-      "Indrė",
-      "Iveta",
-      "Justas",
-      "Justina",
-      "Liudas",
-      "Raimondas",
-      "Rolandas",
-      "Simona",
-      "Vilius",
-    ];
 
-    document.getElementById("button").onclick = function (event) {
-      document.getElementById("result").innerHTML = list[Math.floor(
-        Math.random() * list.length
-      )];
-    };
-  </script>
+<head>
+  <title>Random name generator</title>
+  <style>
+    .custom-button {
+      width: 100px;
+      height: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: solid 2px thistle;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .name-container {
+      border: solid 2px black;
+      width: 100px;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Random name generator</h1>
+  <button id="button-reset" class="custom-button">Reset</button>
+  <button id="button" class="custom-button">Generate</button>
+  <div id="result" class="name-container"></div>
+</body>
+<script>
+  const list = [
+    "Augustas",
+    "Benjaminas",
+    "Deimantė",
+    "Dovilė",
+    "Ernestas",
+    "Gabrielius",
+    "Indrė",
+    "Iveta",
+    "Justas",
+    "Justina",
+    "Liudas",
+    "Raimondas",
+    "Rolandas",
+    "Simona",
+    "Vilius",
+  ];
+  const listNew = [
+    "Augustas",
+    "Benjaminas",
+    "Deimantė",
+    "Dovilė",
+    "Ernestas",
+    "Gabrielius",
+    "Indrė",
+    "Iveta",
+    "Justas",
+    "Justina",
+    "Liudas",
+    "Raimondas",
+    "Rolandas",
+    "Simona",
+    "Vilius",
+  ];
+
+  document.getElementById("button-reset").onclick = function (event) {
+    listNew.splice(0);
+    list.forEach(item => listNew.push(item));
+  };
+
+  document.getElementById("button").onclick = function (event) {
+    if(listNew.length) {
+    const index = Math.floor(
+      Math.random() * listNew.length
+    );
+    document.getElementById("result").innerHTML = listNew[index];
+    listNew.splice(index, 1);
+    } else {
+      document.getElementById("result").innerHTML = 'Nebere zmoniu';
+    }
+  };
+</script>
+
 </html>
