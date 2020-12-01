@@ -24,7 +24,49 @@
       height: 800vh;
     }
 
+
     .header {
+      background-color: #faf;
+      font-size: 32px;
+      height: 64px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header>a {
+      background-color: antiquewhite;
+      width: 124px;
+      margin: 0 16px;
+      height: 100%;
+    }
+
+
+    .header>a:hover>span {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      /* background-color: red; */
+    }
+
+    .header>a:hover>span>span {
+      transform: translate(0, 160px) rotate(18deg);
+      background-color: antiquewhite;
+
+    }
+
+    .header>a>span {
+      display: inline-block;
+    }
+
+    .header>a>span>span {
+      display: inline-block;
+      width: 124px;
+      transition: transform 200ms;
+    }
+
+
+    /* .header {
       width: 100%;
       height: 64px;
       background-color: #faf;
@@ -50,21 +92,127 @@
       height: 100%;
       background-color: red;
       transition: transform 200ms;
-    }
+    } */
 
-    .header>a:hover>span {
+    /* .header>a:hover>span {
       transform: translate(0, 50px) scale(1.5);
-    }
+    } */
   </style>
 </head>
 
 <body>
   <div class="header">
-    <a href="/"><span>Home</span></a>
-    <a href="/about"><span>About</span></a>
-    <a href="/projects"><span>Projects</span></a>
-    <a href="/faq"><span>FAQ</span></a>
+    <a href="/"><span><span>Home</span></span></a>
+    <a href="/about"><span><span>About</span></span></a>
+    <a href="/projects"><span><span>Projects</span></span></a>
+    <a href="/faq"><span><span>FAQ</span></span></a>
   </div>
+  <style>
+    .transform {
+      font-size: 100px;
+      width: 200px;
+      height: 200px;
+      background-color: aquamarine;
+      transform: rotate(90deg) translate(0, 100px);
+    }
+
+    .transform:hover {}
+
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 500px;
+    }
+    .transform2 {
+      display: none;
+    }
+  </style>
+  <div class="center">
+    <div class="transform">Labas</div>
+    <div class="transform2">Labas</div>
+  </div>
+
+  <style>
+    .hover {
+      width: 100px;
+      height: 100px;
+    }
+
+    .hover>div {
+      width: 100px;
+      height: 100px;
+      background: red;
+      transition: all 200ms;
+    }
+
+    .hover:hover>div {
+      transform: rotate(45deg);
+      color: aqua;
+      font-size: 6rem;
+    }
+
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container > span > .hover-container {
+      position: relative;
+    }
+    .container > span > .hover-container > a {
+      position: absolute;
+      top: 0;
+      transition: transform 200ms;
+    }
+    .container > span > .hover-container > a:not(.first) {
+      opacity: 0;
+    }
+    .container > span > .hover-container:hover > a {
+      opacity: 1;
+      height: 40px;
+    }
+    .container > span:hover {
+    }
+    .container > span > .hover-container:hover :nth-child(1) {
+      transform: translate(0, 10px);
+    }
+    .container > span > .hover-container:hover :nth-child(2) {
+      transform: translate(0, 30px);
+    }
+    .container > span > .hover-container:hover :nth-child(3) {
+      transform: translate(0, 50px);
+    }
+    .container > span > .hover-container:hover :nth-child(4) {
+      transform: translate(0, 70px);
+    }
+  </style>
+  <div class="container">
+    <span>
+      <div class="hover-container">
+        <a class="first">
+          Pirmas
+        </a>
+        <a>
+          Antras
+        </a>
+        <a>
+          Trecias
+        </a>
+        <a>
+          Ketvirtas
+        </a>
+      </div>
+    </span>
+  </div>
+  <!-- <div class="transform">
+    Labas
+  </div>
+  <div>
+    Alio
+  </div> -->
   <!-- <p>
     asd asd asd asd asd asd asd asd
     asd asd asd asd asd asd asd asd
