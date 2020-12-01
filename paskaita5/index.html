@@ -18,6 +18,7 @@
     html {
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
     }
 
     body {
@@ -30,39 +31,57 @@
       font-size: 32px;
       height: 64px;
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
     }
 
-    .header>a {
+    .header>.header-element {
       background-color: antiquewhite;
       width: 124px;
-      margin: 0 16px;
       height: 100%;
+      position: relative;
     }
 
 
-    .header>a:hover>span {
+    .header>.header-element:hover>span {
+      top: 0;
+      left: 0;
       position: absolute;
       width: 200px;
       height: 200px;
       /* background-color: red; */
     }
 
-    .header>a:hover>span>span {
+    .header>.header-element:hover>span>.first {
       transform: translate(0, 160px) rotate(18deg);
       background-color: antiquewhite;
-
     }
 
-    .header>a>span {
+    .header>.header-element:hover>span>.second {
+      opacity: 1;
+      transform: translate(0, 120px) rotate(18deg);
+      background-color: antiquewhite;
+    }
+
+    .header>.header-element>span {
       display: inline-block;
+      position: relative;
     }
 
-    .header>a>span>span {
+    .header>.header-element>span>.second {
+      position: absolute;
+      opacity: 0;
+      left: 0;
+    }
+
+    .header>.header-element>span>a {
       display: inline-block;
       width: 124px;
-      transition: transform 200ms;
+      transition: all 200ms;
     }
 
 
@@ -75,7 +94,7 @@
       justify-content: center;
     }
 
-    .header>a {
+    .header>.header-element {
       display: flex;
       height: 100%;
       width: 200px;
@@ -84,7 +103,7 @@
       font-size: 24px;
     }
 
-    .header>a>span {
+    .header>.header-element>span {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -94,7 +113,7 @@
       transition: transform 200ms;
     } */
 
-    /* .header>a:hover>span {
+    /* .header>.header-element:hover>span {
       transform: translate(0, 50px) scale(1.5);
     } */
   </style>
@@ -102,10 +121,30 @@
 
 <body>
   <div class="header">
-    <a href="/"><span><span>Home</span></span></a>
-    <a href="/about"><span><span>About</span></span></a>
-    <a href="/projects"><span><span>Projects</span></span></a>
-    <a href="/faq"><span><span>FAQ</span></span></a>
+    <div class="header-element">
+      <span>
+        <a href="/" class="first">Home</a>
+        <a href="/" class="second">Yes</a>
+      </span>
+    </div>
+    <div class="header-element">
+      <span>
+        <a href="/" class="first">Home</a>
+        <a href="/" class="second">Yes</a>
+      </span>
+    </div>
+    <div class="header-element">
+      <span>
+        <a href="/" class="first">Home</a>
+        <a href="/" class="second">Yes</a>
+      </span>
+    </div>
+    <div class="header-element">
+      <span>
+        <a href="/" class="first">Home</a>
+        <a href="/" class="second">Yes</a>
+      </span>
+    </div>
   </div>
   <style>
     .transform {
@@ -113,17 +152,27 @@
       width: 200px;
       height: 200px;
       background-color: aquamarine;
-      transform: rotate(90deg) translate(0, 100px);
+      transition: transform 200ms;
     }
 
-    .transform:hover {}
+    .center:hover>.transform {
+      transform: rotate(90deg) translate(0, 100px);
+
+    }
+
+    .center:hover>.transform2 {
+      display: block;
+      transform: translate(-50px, 0);
+    }
 
     .center {
+      margin-top: 500px;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 500px;
+      height: 200px;
     }
+
     .transform2 {
       display: none;
     }
@@ -159,33 +208,41 @@
       justify-content: center;
       align-items: center;
     }
-    .container > span > .hover-container {
+
+    .container>span>.hover-container {
       position: relative;
     }
-    .container > span > .hover-container > a {
+
+    .container>span>.hover-container>a {
       position: absolute;
       top: 0;
       transition: transform 200ms;
     }
-    .container > span > .hover-container > a:not(.first) {
+
+    .container>span>.hover-container>a:not(.first) {
       opacity: 0;
     }
-    .container > span > .hover-container:hover > a {
+
+    .container>span>.hover-container:hover>a {
       opacity: 1;
       height: 40px;
     }
-    .container > span:hover {
-    }
-    .container > span > .hover-container:hover :nth-child(1) {
+
+    .container>span:hover {}
+
+    .container>span>.hover-container:hover :nth-child(1) {
       transform: translate(0, 10px);
     }
-    .container > span > .hover-container:hover :nth-child(2) {
+
+    .container>span>.hover-container:hover :nth-child(2) {
       transform: translate(0, 30px);
     }
-    .container > span > .hover-container:hover :nth-child(3) {
+
+    .container>span>.hover-container:hover :nth-child(3) {
       transform: translate(0, 50px);
     }
-    .container > span > .hover-container:hover :nth-child(4) {
+
+    .container>span>.hover-container:hover :nth-child(4) {
       transform: translate(0, 70px);
     }
   </style>
@@ -206,6 +263,50 @@
         </a>
       </div>
     </span>
+  </div>
+  <style>
+    .uzduotis-1 > p > span > span{
+      border: solid red 2px;
+      display: inline-block;
+      transition: color 200ms;
+    }
+    .uzduotis-1 > p > span > span:hover{
+      color: blue;
+    }
+  </style>
+  <div class="uzduotis-1">
+    <p>
+      The <b>British</b> Shorthair is the pedigreed version of the traditional <b>British</b> domestic cat, with a
+      distinctively
+      stocky body, dense coat, and broad face. The most familiar color variant is the
+      <span>"<b>British</b> Blue,"</span>
+      a solid grey-blue
+      coat, orange eyes, and a medium-sized tail. The breed has also been developed in a wide range of other colours and
+      patterns, including tabby and colorpoint.
+    </p>
+
+    <p>
+      <span>It is one of the <span>most ancient</span> cat breeds known</span>. In modern times, it remains the most
+      popular pedigreed breed in
+      its native country, as registered by the UK's Governing Council of the Cat Fancy (GCCF). A quarter of all kittens
+      registered with the GCCF each year are <b>British</b> Shorthairs, making the <b>British</b> the most popular
+      pedigree cat in the
+      UK.
+    </p>
+
+    <p>
+      The breed's good-natured appearance and relatively calm temperament make it a frequent media star, notably as the
+      inspiration for John Tenniel's famous illustration of the Cheshire Cat from Alice in Wonderland. The Cat Fanciers'
+      Association profile reads:
+      <span>
+        "When gracelessness is observed, the <b>British</b> Shorthair is duly embarrassed, quickly
+        recovering with a <span>'Cheshire cat smile'</span>."
+      </span>
+    </p>
+    <div>
+      <img src="/britishblue.jpg" />
+    </div>
+
   </div>
   <!-- <div class="transform">
     Labas
