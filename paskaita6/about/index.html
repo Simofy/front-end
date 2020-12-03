@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+    }
+
+    .center {
+      width: 150px;
+      height: 150px;
+      background-color: green;
+      /* @keyframes pavadinimas */
+      animation-name: animacija;
+      /* Keik užtruks animacija */
+      animation-duration: 2s;
+      /* Kiek laukti prieš pradedant animacija */
+      animation-delay: 0s;
+      /* Kiek kartų kartoti animacija */
+      animation-iteration-count: infinite;
+      /* Nuo kurios pusės pradėti @keyframes */
+      animation-direction: normal;
+      /* Laiko funkcija */
+      animation-timing-function: ease-in-out;
+      /* cubic-bezier(0.175, 0.885, 0.32, 1.275); */
+      /* Ar animacijos stilių pritaikyti po anim */
+      animation-fill-mode: both;
+    }
+
+    @keyframes show-navbar {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(0%);
+      }
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      height: 64px;
+      background-color: cornflowerblue;
+
+      animation: show-navbar 600ms ease-in 0s 1;
+
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .navbar>a {
+      width: 150px;
+      height: 100%;
+      background-color: antiquewhite;
+      margin: 12px;
+
+
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* div:hover {
+        animation-name: none;
+      } */
+  </style>
+  <div class="navbar">
+    <a href="/paskaita6">Home</a>
+    <a href="/paskaita6/about">About</a>
+    <a href="/paskaita6/faq">Faq</a>
+  </div>
+  <div class="container">
+  </div>
+</body>
+
+</html>

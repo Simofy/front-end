@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <style>
+    @keyframes animacija {
+      0% {
+        background-color: aliceblue;
+        transform: scale(1) rotate(calc(90deg * 0));
+        border-width: 2px;
+      }
+
+      20% {
+        background-color: beige;
+        transform: scale(1.1) rotate(calc(90deg *1));
+      }
+
+      40% {
+        background-color: burlywood;
+        transform: scale(1) rotate(calc(90deg * 2));
+      }
+      50% {
+        animation-timing-function: linear;
+        border-width: 20px;
+      }
+      60% {
+        background-color: darksalmon;
+        transform: scale(2) rotate(calc(90deg * 3));
+      }
+
+      80% {
+        background-color: mediumaquamarine;
+        transform: scale(1.5) rotate(calc(90deg * 4));
+      }
+
+      100% {
+        background-color: aliceblue;
+        transform: scale(1) rotate(calc(90deg * 5));
+        animation-timing-function: linear;
+        border-width: 2px;
+      }
+    }
+
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+    }
+
+    .center {
+      border: solid 2px red;
+      width: 150px;
+      height: 150px;
+      transform: scale(1) rotate(0) translateX(100px);
+      background-color: green;
+      /* @keyframes pavadinimas */
+      /* Keik užtruks animacija */
+      animation-duration: 2s;
+      /* Kiek laukti prieš pradedant animacija */
+      animation-name: animacija;
+      animation-delay: 0s;
+      /* Kiek kartų kartoti animacija */
+      animation-iteration-count: infinite;
+      /* Nuo kurios pusės pradėti @keyframes */
+      animation-direction: normal;
+      /* Laiko funkcija */
+      animation-timing-function: linear;
+      /* cubic-bezier(0.175, 0.885, 0.32, 1.275); */
+      /* Ar animacijos stilių pritaikyti po anim */
+      animation-fill-mode: none;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      height: 64px;
+      background-color: cornflowerblue;
+
+
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .navbar>a {
+      width: 150px;
+      height: 100%;
+      background-color: antiquewhite;
+      margin: 12px;
+
+
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* div:hover {
+        animation-name: none;
+      } */
+  </style>
+  <div class="navbar">
+    <a href="/paskaita6">Home</a>
+    <a href="/paskaita6/about">About</a>
+    <a href="/paskaita6/faq">Faq</a>
+  </div>
+  <div class="container">
+    <div class="center"></div>
+  </div>
+</body>
+
+</html>
