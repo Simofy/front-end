@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    @keyframes bond-007 {
+      0% {
+        top: 20%;
+        left: 40%;
+      }
+
+      25% {
+        top: 50%;
+        left: 60%;
+      }
+
+      50% {
+        top: 40%;
+        left: 20%;
+      }
+
+      75% {}
+
+      100% {
+        top: 20%;
+        left: 40%;
+      }
+    }
+
+    html {
+      height: 100%;
+      width: 100%;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .cat-bond {
+      display: none;
+      animation: bond-007 2s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
+      width: 124px;
+      height: 124px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      border-radius: 62px;
+      background: url(/homework/britishblue.jpg) center top fixed;
+      background-repeat: no-repeat;
+      background-color: red;
+    }
+
+    @keyframes kvadratas-outer {
+      0% {
+        transform: rotate(0);
+      }
+
+      50% {
+        border-width: 20px;
+        transform: rotate(90deg);
+      }
+
+      100% {
+        transform: rotate(0);
+      }
+    }
+
+    .kvadratas {
+      border: 0px solid orangered;
+      border-collapse: separate;
+      animation: kvadratas-outer 2s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
+      width: 160px;
+      height: 160px;
+      background-color: cadetblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes kvadratas-inner {
+      0% {
+        width: 0;
+        height: 0;
+      }
+
+      50% {
+        border-width: 40px;
+        width: 40px;
+        height: 40px;
+      }
+
+      100% {
+        width: 0;
+        height: 0;
+      }
+    }
+
+    .kvadratas>div {
+      border: 0px solid darkslateblue;
+      animation: kvadratas-inner 2s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
+      background-color: brown;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cat-bond"></div>
+  <div class="kvadratas">
+    <div></div>
+  </div>
+</body>
+
+</html>
