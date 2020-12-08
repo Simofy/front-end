@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .container {
+      display: flex;
+      height: 400vh;
+      background-color: deepskyblue;
+      /* flex-wrap: wrap-reverse; */
+      justify-content: space-evenly;
+      /* flex-wrap: wrap; */
+      flex-direction: row;
+    }
+
+    .navigation {
+      background-color: azure;
+      max-width: 250px;
+      flex: 1;
+    }
+
+    .content {
+      background-color: aquamarine;
+      flex: 1;
+      flex-direction: column;
+      display: flex;
+    }
+
+    .feed {
+      background-color: bisque;
+      min-width: 250px;
+      flex: 0;
+    }
+
+    .navigation-links {
+      display: flex;
+      position: sticky;
+      flex-direction: column;
+      top: 0;
+      background-color: cornsilk;
+    }
+
+    .navigation-links>a {
+      width: 100%;
+      margin: 12px 0;
+      text-align: center;
+    }
+
+    .test {
+      height: 150px;
+    }
+
+    div[id|=blogas] {
+      flex: 1;
+    }
+
+    #blogas-1 {
+      background-color: darkcyan;
+    }
+    #blogas-2 {
+      background-color: blanchedalmond;
+    }
+    #blogas-3 {
+      background-color: darkolivegreen;
+    }
+    #blogas-4 {
+      background-color: greenyellow;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="navigation">
+      <div class="test"></div>
+      <div class="navigation-links">
+        <a href="#blogas-1">Blogas 1</a>
+        <a href="#blogas-2">Blogas 2</a>
+        <a href="#blogas-3">Blogas 3</a>
+        <a href="#blogas-4">Blogas 4</a>
+      </div>
+    </div>
+    <div class="content">
+      <div id="blogas-1"></div>
+      <div id="blogas-2"></div>
+      <div id="blogas-3"></div>
+      <div id="blogas-4"></div>
+    </div>
+    <div class="feed"></div>
+  </div>
+</body>
+
+</html>
