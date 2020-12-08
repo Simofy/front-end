@@ -62,17 +62,37 @@
       flex: 1;
     }
 
-    #blogas-1 {
-      background-color: darkcyan;
-    }
     #blogas-2 {
       background-color: blanchedalmond;
     }
+
     #blogas-3 {
       background-color: darkolivegreen;
     }
+
     #blogas-4 {
       background-color: greenyellow;
+    }
+
+    #blogas-1 {
+      background-color: darkcyan;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-content: flex-start;
+      align-items: stretch;
+    }
+
+    .img-container {
+      min-width: 64px;
+      min-height: 64px;
+      margin: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: .8rem;
     }
   </style>
 </head>
@@ -89,13 +109,27 @@
       </div>
     </div>
     <div class="content">
-      <div id="blogas-1"></div>
+      <div id="blogas-1">
+
+      </div>
       <div id="blogas-2"></div>
       <div id="blogas-3"></div>
       <div id="blogas-4"></div>
     </div>
     <div class="feed"></div>
   </div>
+  <script>
+    const blogas1 = document.getElementById('blogas-1');
+    // Keisti 100 norint gauti kitoki kieki
+    for (let i = 0; i < 100; i += 1) {
+      const element = document.createElement('div');
+      element.className = 'img-container';
+      element.style.backgroundColor = `#${((1 << 24) * Math.random() | 0).toString(16)}`;
+      element.innerText = `Tai yra ${i}`;
+      // element.innerText = 'Galima ir taip';
+      blogas1.appendChild(element);
+    }
+  </script>
 </body>
 
 </html>
