@@ -181,6 +181,7 @@
     .img-container:hover>span {
       transform: rotateY(180deg);
     }
+
     .hidden-nav {
       display: flex;
       width: 180px;
@@ -194,7 +195,8 @@
       transform: translate(-180px);
       transition: 200ms;
     }
-    .hidden-nav > a {
+
+    .hidden-nav>a {
       margin-top: 2rem;
       height: 48px;
       display: flex;
@@ -202,6 +204,7 @@
       align-items: center;
       background-color: aquamarine;
     }
+
     .hidden-hover {
       width: 48px;
       position: fixed;
@@ -210,7 +213,9 @@
       left: 0;
       z-index: 1;
     }
-    .hidden-hover:hover ~ .hidden-nav, .hidden-nav:hover {
+
+    .hidden-hover:hover~.hidden-nav,
+    .hidden-nav:hover {
       transform: translate(0);
 
     }
@@ -227,7 +232,7 @@
     <a href="#">Test 4</a>
     <a href="#">Test 5</a>
   </div>
-  <div class="nav">position: sticky;</div>
+  <div class="nav">position: sticky; 💙</div>
   <div class="container">
     <div class="navigation">
       Static width
