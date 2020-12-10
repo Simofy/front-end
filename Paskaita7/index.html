@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html,
     body {
@@ -21,6 +22,14 @@
       flex-direction: row;
     }
 
+    .nav {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      height: 84px;
+      transition: 200ms;
+    }
+
     .navigation {
       background-color: azure;
       max-width: 250px;
@@ -30,15 +39,14 @@
     .content {
       background-color: aquamarine;
       flex: 1;
-      flex-direction: column;
+      flex-direction: row;
       display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      justify-content: center;
     }
 
-    .feed {
-      background-color: bisque;
-      min-width: 250px;
-      flex: 0;
-    }
+
 
     .navigation-links {
       display: flex;
@@ -54,8 +62,80 @@
       text-align: center;
     }
 
-    .test {
+    .brand-logo {
       height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .brand-logo>span {
+      border-radius: 50%;
+      width: 88px;
+      height: 88px;
+      background-color: aquamarine;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feed {
+      background-color: bisque;
+      min-width: 250px;
+      flex: 0;
+      visibility: visible;
+      transition: min-width 200ms, visibility 200ms;
+    }
+
+    @keyframes test {
+      0% {
+        min-width: 250px;
+      }
+
+      99% {
+        min-width: 0px;
+      }
+
+      100% {
+        min-width: 0px;
+        display: none !important;
+      }
+    }
+
+    @media (min-width: 729px) {
+      .feed {
+        min-width: 0;
+        visibility: hidden;
+      }
+    }
+
+    @keyframes brand {
+      50% {
+        transform: rotate(181deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .brand-logo>span>span {
+      position: absolute;
+      transform: rotate(0deg);
+      animation: brand 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s infinite;
+    }
+
+    .brand-logo>span>span>span {
+      width: 88px;
+      height: 88px;
+      background-color: azure;
+      border-radius: 16px;
+      display: block;
+      top: 0;
+      left: 0;
+      transform-origin: 50% 50%;
+      transform: translate(44px, 0) rotate(45deg);
+
     }
 
     div[id|=blogas] {
@@ -84,7 +164,7 @@
       align-items: stretch;
     }
 
-    .img-container {
+    .img-container>span {
       min-width: 64px;
       min-height: 64px;
       margin: 4px;
@@ -93,39 +173,81 @@
       align-items: center;
       color: white;
       font-size: .8rem;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      transition: all 200ms;
+    }
+
+    .img-container:hover>span {
+      transform: rotateY(180deg);
+    }
+    .hidden-nav {
+      display: flex;
+      width: 180px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      background-color: aqua;
+      z-index: 1;
+      flex-direction: column;
+      transform: translate(-180px);
+      transition: 200ms;
+    }
+    .hidden-nav > a {
+      margin-top: 2rem;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: aquamarine;
+    }
+    .hidden-hover {
+      width: 48px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .hidden-hover:hover ~ .hidden-nav, .hidden-nav:hover {
+      transform: translate(0);
+
     }
   </style>
 </head>
 
 <body>
+  <div class="hidden-hover">
+  </div>
+  <div class="hidden-nav">
+    <a href="#">Test 1</a>
+    <a href="#">Test 2</a>
+    <a href="#">Test 3</a>
+    <a href="#">Test 4</a>
+    <a href="#">Test 5</a>
+  </div>
+  <div class="nav">position: sticky;</div>
   <div class="container">
     <div class="navigation">
-      <div class="test"></div>
-      <div class="navigation-links">
-        <a href="#blogas-1">Blogas 1</a>
-        <a href="#blogas-2">Blogas 2</a>
-        <a href="#blogas-3">Blogas 3</a>
-        <a href="#blogas-4">Blogas 4</a>
-      </div>
+      Static width
     </div>
     <div class="content">
-      <div id="blogas-1">
-
-      </div>
-      <div id="blogas-2"></div>
-      <div id="blogas-3"></div>
-      <div id="blogas-4"></div>
     </div>
-    <div class="feed"></div>
+    <div class="feed">
+      Static width
+    </div>
   </div>
   <script>
-    const blogas1 = document.getElementById('blogas-1');
+    const blogas1 = document.getElementsByClassName('content')[0];
     // Keisti 100 norint gauti kitoki kieki
     for (let i = 0; i < 100; i += 1) {
       const element = document.createElement('div');
       element.className = 'img-container';
-      element.style.backgroundColor = `#${((1 << 24) * Math.random() | 0).toString(16)}`;
-      element.innerText = `Tai yra ${i}`;
+      const elementInner = document.createElement('span');
+      elementInner.style.backgroundColor = `#${((1 << 24) * Math.random() | 0).toString(16)}`;
+      elementInner.innerText = `Tai yra ${i}`;
+      element.appendChild(elementInner);
       // element.innerText = 'Galima ir taip';
       blogas1.appendChild(element);
     }
