@@ -16,6 +16,7 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
     }
 
     .container {
@@ -50,6 +51,7 @@
       from {
         transform: translateX(-100%);
       }
+
       to {
         transform: translateX(0%);
       }
@@ -81,6 +83,121 @@
       align-items: center;
     }
 
+
+    @keyframes drop-square-follow-path {
+      0% {
+        top: calc(50% - 75px);
+        left: calc(50% - 75px);
+      }
+
+      25% {
+        top: calc(50% - 75px + 100px);
+        left: calc(50% - 75px + 100px);
+      }
+
+      50% {
+        top: calc(50% - 75px + 200px);
+        left: calc(50% - 75px);
+      }
+
+      75% {
+        top: calc(50% - 75px + 100px);
+        left: calc(50% - 75px - 100px);
+      }
+    }
+
+    @keyframes drop-square {
+      0% {
+        top: calc(50% - 75px);
+        animation-timing-function: cubic-bezier(.9, .5, .79, 1.24);
+        transform: scaleY(1);
+        background-color: blanchedalmond;
+      }
+
+      20% {
+        top: calc(100% - 150px);
+        animation-timing-function: cubic-bezier(.37, .8, .25, 1);
+        transform: scaleY(0.9);
+      }
+
+      30% {
+        top: calc(90% - 150px);
+        transform: scaleY(1);
+
+        animation-timing-function: cubic-bezier(.58, .07, 1, .76);
+      }
+
+      40% {
+        top: calc(100% - 150px);
+        transform: scaleY(0.9);
+      }
+
+      45% {
+        transform: scaleY(1);
+        transform-origin: right bottom;
+      }
+
+      100% {
+        transform: rotate(90deg);
+        top: calc(100% - 150px);
+        background-color: #faf;
+      }
+    }
+
+    @keyframes drop-square-text {
+      45% {
+        transform: rotate(0);
+      }
+
+      100% {
+        transform: rotate(-90deg);
+      }
+    }
+
+    .square::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: .2;
+      background-color: red;
+      animation-name: drop-square-text;
+      animation-duration: 2000ms;
+      animation-iteration-count: infinite;
+      transition: opacity 200ms;
+    }
+
+    .square:hover::after {
+      opacity: 1;
+    }
+
+    .square:hover {
+      animation-play-state: paused;
+    }
+
+    .square {
+
+      position: fixed;
+      top: calc(50% - 75px);
+      left: calc(50% - 75px);
+      width: 150px;
+      height: 150px;
+      transform-origin: 100% 100%;
+      animation: drop-square-follow-path 3s 0s infinite;
+      background-color: blanchedalmond;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .square>span {
+      /* animation: drop-square-text 10s 0s infinite alternate; */
+    }
+
     /* div:hover {
         animation-name: none;
       } */
@@ -91,7 +208,125 @@
     <a href="/paskaita6/faq">Faq</a>
   </div>
   <div class="container">
+    <div class="square"><span>Square</span></div>
   </div>
+  <style>
+    .loader-1 {
+      width: calc(100% - 40px);
+      height: 48px;
+      background-color: black;
+      margin: 0 20px;
+      position: absolute;
+      top: 50%;
+    }
+
+    @keyframes anim {
+      0% {
+        width: 0%;
+      }
+
+      60% {
+        width: 100%;
+      }
+
+      100% {
+        width: 100%;
+      }
+    }
+
+    .loader-1::after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      animation: anim 3s 0s infinite;
+      background-color: transparent;
+      background-position: 0px 29px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23FFFFFF' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 41.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      animation-timing-function: cubic-bezier(1, .11, .76, .65);
+      background-size: 9px;
+      animation-direction: alternate;
+    }
+  </style>
+  <div class="loader-1">
+    <span></span>
+  </div>
+  <div class="loader-2"></div>
+  <div class="loader-3"></div>
+  <div class="Test1">
+    <span>A</span>
+  </div>
+  <style>
+    .Test1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      bottom: 0;
+    }
+
+    @keyframes test1 {
+      0% {
+        transform: translate(-350px, -350px) rotate(36deg);
+      }
+
+      10% {
+        transform: translate(0, -350px) rotate(72deg);
+      }
+
+      20% {
+        transform: translate(350px, -350px) rotate(108deg);
+      }
+
+      30% {
+        transform: translate(350px, 0) rotate(144deg);
+      }
+
+      40% {
+        transform: translate(350px, 350px) rotate(180deg);
+      }
+
+      50% {
+        transform: translate(0px, 350px) rotate(216deg);
+      }
+
+      60% {
+        transform: translate(-350px, 350px) rotate(252deg);
+      }
+
+      70% {
+        transform: translate(-350px, 0px) rotate(298deg);
+      }
+
+      80% {
+        transform: translate(-350px, -350px) rotate(324deg);
+      }
+
+      90% {
+        transform: rotate(360deg);
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    .Test1 span {
+      border: solid 4px black;
+      width: 50px;
+      height: 50px;
+      background-color: blueviolet;
+
+      animation-name: test1;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-direction: normal;
+      animation-direction: 0s;
+    }
+  </style>
 </body>
 
 </html>

@@ -19,10 +19,12 @@
         background-color: burlywood;
         transform: scale(1) rotate(calc(90deg * 2));
       }
+
       50% {
         animation-timing-function: linear;
         border-width: 20px;
       }
+
       60% {
         background-color: darksalmon;
         transform: scale(2) rotate(calc(90deg * 3));
@@ -85,6 +87,7 @@
       /* Ar animacijos stilių pritaikyti po anim */
       animation-fill-mode: none;
     }
+
     .navbar {
       position: sticky;
       top: 0;
@@ -111,9 +114,9 @@
       align-items: center;
     }
 
-    /* div:hover {
-        animation-name: none;
-      } */
+    .center:hover {
+      animation-play-state: paused;
+    }
   </style>
   <div class="navbar">
     <a href="/paskaita6">Home</a>
