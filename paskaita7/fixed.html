@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    @keyframes bond-007 {
+      0% {
+        top: 20%;
+        left: 40%;
+      }
+
+      25% {
+        top: 50%;
+        left: 60%;
+      }
+
+      50% {
+        top: 40%;
+        left: 20%;
+      }
+
+      75% {}
+
+      100% {
+        top: 20%;
+        left: 40%;
+      }
+    }
+
+    html {
+      height: 100%;
+      width: 100%;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      height: 200vh;
+      background: url(/homework/britishblue.jpg) center top fixed;
+    }
+    .container {
+      width: 400px;
+      background-color: white;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .element {
+      height: 200px;
+      background-color: red;
+      width: 100%;
+      margin: 48px;
+      background: url(/homework/britishblue.jpg) center top fixed;
+      position: relative;
+    }
+    .element::after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: #faf5;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="element"></div>
+  </div>
+</body>
+
+</html>
