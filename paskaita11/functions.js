@@ -11,6 +11,11 @@ let arrayOfColors = [
 
 let index = 0;
 
+/**
+ * Add width and height to function changeColor
+ */
+
+
 function changeColor() {
   let randomLeft = Math.random() * 100;
   let element = document
