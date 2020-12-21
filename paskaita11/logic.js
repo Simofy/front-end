@@ -2,6 +2,7 @@
 
 let und;
 
+let labas = "test";
 
 document
   .getElementById('container')
