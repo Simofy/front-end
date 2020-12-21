@@ -21,14 +21,23 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
     }
 
     .container {
-      margin: 16px;
+      position: absolute;
+      left: 0;
       width: 200px;
       height: 200px;
       background-color: beige;
+      transition: all 200ms;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      justify-self: flex-start;
+      align-self: flex-start;
+      align-items: center;
     }
   </style>
 </head>
@@ -39,7 +48,9 @@
  -->
 
 <body>
-  <button onclick="test()">Click me!</button>
+  <div class="button-container">
+    <button id="buttonChangeColor">Change color!</button>
+  </div>
   <div id="container" class="container">
   </div>
   <script>
