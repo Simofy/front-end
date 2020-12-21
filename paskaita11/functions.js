@@ -24,7 +24,6 @@ function changeColor() {
   element.style.left = randomLeft + '%';
   console.log(arrayOfColors[index], index);
   // index += 1;
-  index = (index + 1) % arrayOfColors.length;
 }
 
 function onLoad() {
