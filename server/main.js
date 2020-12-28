@@ -5,7 +5,8 @@ const app = express();
 app.listen(3000, () => { });
 
 app.get('/generate-shopping-cart', (req, res, next) => {
-  const total = Math.floor(Math.random() * 100 + 10);
+  const { size } = req.query;
+  const total = size ? size : Math.floor(Math.random() * 100 + 10);
   const response = [];
   for (let i = 0; i < total; i++) {
     response.push({
