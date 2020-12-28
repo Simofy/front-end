@@ -7,8 +7,8 @@ app.listen(3000, () => {
 });
 
 app.get('/api/generate-shopping-cart', (req, res, next) => {
-  const { size } = req.query;
-  const total = size ? size : Math.floor(Math.random() * 100 + 10);
+  const { limit } = req.query;
+  const total = limit ? limit : Math.floor(Math.random() * 100 + 10);
   const response = [];
   for (let i = 0; i < total; i++) {
     response.push({
