@@ -2,9 +2,11 @@ const { uniqueNamesGenerator, starWars } = require('unique-names-generator');
 const express = require("express");
 const app = express();
 
-app.listen(3000, () => { });
+app.listen(3000, () => {
+  console.log('Hello ssh!');
+});
 
-app.get('/generate-shopping-cart', (req, res, next) => {
+app.get('/api/generate-shopping-cart', (req, res, next) => {
   const { size } = req.query;
   const total = size ? size : Math.floor(Math.random() * 100 + 10);
   const response = [];
