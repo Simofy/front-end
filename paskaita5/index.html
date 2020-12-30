@@ -18,10 +18,11 @@
     html {
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
     }
 
     body {
+      /* https://stackoverflow.com/questions/47095596/body-overflow-x-hidden-breaks-position-sticky#:~:text=The%20simple%20solution%20is%20to,body%20and%20it%20will%20work! */
+      overflow-x: hidden;
       height: 800vh;
     }
 
@@ -33,10 +34,8 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
     }
 
     .header>.header-element {
@@ -44,6 +43,16 @@
       width: 124px;
       height: 100%;
       position: relative;
+    }
+
+    .header>.header-element * {
+      color: red;
+      transform-origin: 100% 1000%;
+    }
+
+
+    .header>.header-element:hover * {
+      color: blue;
     }
 
 
@@ -57,6 +66,7 @@
     }
 
     .header>.header-element:hover>span>.first {
+      opacity: 1;
       transform: translate(0, 160px) rotate(18deg);
       background-color: antiquewhite;
     }
@@ -72,7 +82,8 @@
       position: relative;
     }
 
-    .header>.header-element>span>.second {
+    .header>.header-element>span>.second,
+    .header>.header-element>span>.first {
       position: absolute;
       opacity: 0;
       left: 0;
@@ -81,7 +92,7 @@
     .header>.header-element>span>a {
       display: inline-block;
       width: 124px;
-      transition: all 200ms;
+      transition: transform 200ms, color linear 200ms;
     }
 
 
@@ -119,28 +130,37 @@
   </style>
 </head>
 
+<script>
+
+</script>
+
 <body>
+  <div class="alert"></div>
   <div class="header">
     <div class="header-element">
       <span>
+        <span>Header</span>
         <a href="/" class="first">Home</a>
         <a href="/" class="second">Yes</a>
       </span>
     </div>
     <div class="header-element">
       <span>
+        <span>Header</span>
         <a href="/" class="first">Home</a>
         <a href="/" class="second">Yes</a>
       </span>
     </div>
     <div class="header-element">
       <span>
+        <span>Header</span>
         <a href="/" class="first">Home</a>
         <a href="/" class="second">Yes</a>
       </span>
     </div>
     <div class="header-element">
       <span>
+        <span>Header</span>
         <a href="/" class="first">Home</a>
         <a href="/" class="second">Yes</a>
       </span>
@@ -152,17 +172,13 @@
       width: 200px;
       height: 200px;
       background-color: aquamarine;
-      transition: transform 200ms;
+      transition: transform 2000ms;
+      /* transform-origin: 0% 100%; */
     }
 
     .center:hover>.transform {
-      transform: rotate(90deg) translate(0, 100px);
+      transform: rotate(90deg) translate(100px) scale(1.5);
 
-    }
-
-    .center:hover>.transform2 {
-      display: block;
-      transform: translate(-50px, 0);
     }
 
     .center {
@@ -179,7 +195,6 @@
   </style>
   <div class="center">
     <div class="transform">Labas</div>
-    <div class="transform2">Labas</div>
   </div>
 
   <style>
@@ -265,12 +280,13 @@
     </span>
   </div>
   <style>
-    .uzduotis-1 > p > span > span{
+    .uzduotis-1>p>span>span {
       border: solid red 2px;
       display: inline-block;
       transition: color 200ms;
     }
-    .uzduotis-1 > p > span > span:hover{
+
+    .uzduotis-1>p>span>span:hover {
       color: blue;
     }
   </style>
@@ -303,8 +319,25 @@
         recovering with a <span>'Cheshire cat smile'</span>."
       </span>
     </p>
-    <div>
-      <img src="/britishblue.jpg" />
+    <style>
+      img {
+        transition: all 200ms;
+      }
+
+      img:hover {
+        transform: scale(3) rotate(10deg);
+        border: solid tomato 100px;
+      }
+
+      .con {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+      }
+    </style>
+    <div class="con">
+      <img src="../homework/britishblue.jpg" width="200" height="200" />
     </div>
 
   </div>
