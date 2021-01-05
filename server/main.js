@@ -3,7 +3,7 @@ const { uniqueNamesGenerator, starWars } = require('unique-names-generator');
 const express = require("express");
 const app = express();
 
-const appPort = 2020;
+const appPort = 3000;
 
 app.use(express.static(__dirname + '/public'));
 
