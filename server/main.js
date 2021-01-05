@@ -1,8 +1,13 @@
+require('dotenv').config()
 const { uniqueNamesGenerator, starWars } = require('unique-names-generator');
+const assert = require('assert');
 const express = require("express");
 const app = express();
 
-app.listen(3000, () => {
+
+app.use(express.static('../'))
+
+app.listen(process.env.APP_PORT, () => {
   console.log('Hello ssh!');
 });
 
@@ -21,4 +26,4 @@ app.get('/api/generate-shopping-cart', (req, res, next) => {
     })
   }
   res.json(response);
-})
+});
