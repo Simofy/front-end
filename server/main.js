@@ -5,7 +5,7 @@ const app = express();
 
 const appPort = 2020;
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 app.listen(appPort, () => {
   console.log((new Date()).toISOString(), `Hello ssh! Port: ${appPort}`);
