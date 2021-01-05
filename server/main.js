@@ -8,7 +8,7 @@ const app = express();
 app.use(express.static('../'))
 
 app.listen(process.env.APP_PORT, () => {
-  console.log((new Date()).toISOString(), 'Hello ssh!');
+  console.log((new Date()).toISOString(), `Hello ssh! Port: ${process.env.APP_PORT}`);
 });
 
 app.get('/api/generate-shopping-cart', (req, res, next) => {
