@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <!-- Uzduotis 1 -->
+  <!--
+    Ziureti i nuotrauka /Uzduotis-1.pmg
+    Spalvos gali buti pasirenkamos savo nuoziura
+    Reikia kad p elemente visi pirmo lygio esantis span vaikai
+    butu su border
+    Antro lygio vaikai turi tureti stiliu kuris akcentuoja teksta
+
+    Prideti prie b tag pseudo klase :hover, kuri keicia teksto spalva
+
+    Naudoti .uzduotis-1 klase, kad nekeistu stiliaus kitose elementuose
+
+    Sutvarkyti graziai nuotrauka ( savo nuoziura )
+
+    Del transition animacijos galite kaip pavyzdziu naudotis selektoriuje .uzduotis-1 b::after
+  -->
+  <style>
+    .uzduotis-1 {}
+
+    .uzduotis-1 b {
+      position: relative;
+    }
+
+    .uzduotis-1 b::after {
+      content: "";
+      transition: background-color 200ms linear;
+      background-color: red;
+    }
+
+    .uzduotis-1 b:hover::after {
+      position: absolute;
+      content: "CAT";
+      color: white;
+      top: 1rem;
+      left: 0;
+      padding: 12px;
+      background-color: rgba(138, 43, 226, 0.4);
+      transition: background-color 200ms linear;
+    }
+
+
+    .uzduotis-1>p>span {
+      border: solid 2px tomato;
+    }
+
+    .uzduotis-1>p>span>span {
+      text-decoration: underline;
+    }
+
+    b {
+      font-weight: normal;
+      font-style: italic;
+    }
+
+    div>div {
+      margin: 0 auto;
+      width: 100px;
+    }
+
+    img {
+      width: 100px;
+      border: dashed 2px tomato;
+    }
+  </style>
+  <div class="uzduotis-1">
+    <p>
+      The <b>British</b> Shorthair is the pedigreed version of the traditional <b>British</b> domestic cat, with a
+      distinctively
+      stocky body, dense coat, and broad face. The most familiar color variant is the
+      <span>"<b>British</b> Blue,"</span>
+      a solid grey-blue
+      coat, orange eyes, and a medium-sized tail. The breed has also been developed in a wide range of other colours and
+      patterns, including tabby and colorpoint.
+    </p>
+
+    <p>
+      <span>It is one of the <span>most ancient</span> cat breeds known</span>. In modern times, it remains the most
+      popular pedigreed breed in
+      its native country, as registered by the UK's Governing Council of the Cat Fancy (GCCF). A quarter of all kittens
+      registered with the GCCF each year are <b>British</b> Shorthairs, making the <b>British</b> the most popular
+      pedigree cat in the
+      UK.
+    </p>
+
+    <p>
+      The breed's good-natured appearance and relatively calm temperament make it a frequent media star, notably as the
+      inspiration for John Tenniel's famous illustration of the Cheshire Cat from Alice in Wonderland. The Cat Fanciers'
+      Association profile reads:
+      <span>
+        "When gracelessness is observed, the <b>British</b> Shorthair is duly embarrassed, quickly
+        recovering with a <span>'Cheshire cat smile'</span>."
+      </span>
+    </p>
+    <div>
+      <img src="/britishblue.jpg" />
+    </div>
+
+  </div>
+  <!-- 
+    Uzduotis 2
+    Nuimti default stiliu
+    Nuspalvinti teksta tag a kur title atributas turi savyje 'hair'
+    Jei turi href atribute tail, uzdeti border
+    Jei turi ZODI cat atributas title, padaryti teksta underline
+
+    VSCODE pasizaidimas (windows):
+    Pazymekite    <a href="/   ir spauskite ctrl+f ir padarykite 
+    mass-replace (daugiau zenklas) su tekstu    <a href="https://en.wikipedia.org/
+    Kad butu funkcionalus link
+    
+   -->
+  <style>
+    .uzduotis-2>p>a {
+      display: block;
+      text-align: center;
+      background-color: beige;
+      margin: 16px;
+    }
+
+    .show-on-hover {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      z-index: 10;
+      width: 100%;
+      background-color: #eee8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 48px;
+    }
+
+    /* .uzduotis-2 a[] {} */
+  </style>
+  <script>
+    window.onload = function () {
+      const aList = document.querySelectorAll('a');
+      for (let i = 0; i < aList.length; i += 1) {
+        const a = aList[i];
+        a.onmouseenter = function () {
+          document.querySelector('.show-on-hover').innerHTML = a.href;
+        }
+      }
+    }
+  </script>
+  <div class="uzduotis-2">
+    <div class="show-on-hover"></div>
+    <p>
+      <a href="/wiki/Abyssinian_cat" title="Abyssinian cat">Abyssinian</a>
+      <a href="/wiki/Aegean_cat" title="Aegean cat">Aegean</a>
+      <a href="/wiki/American_Bobtail" title="American Bobtail">American Bobtail</a>
+      <a href="/wiki/American_Curl" title="American Curl">American Curl</a>
+      <a href="/wiki/American_Ringtail" title="American Ringtail">American Ringtail</a>
+      <a href="/wiki/American_Shorthair" title="American Shorthair">American Shorthair</a>
+      <a href="/wiki/American_Wirehair" title="American Wirehair">American Wirehair</a>
+      <a href="/wiki/Cyprus_cat#Aphrodite_Giant" title="Cyprus cat">Aphrodite Giant</a>
+      <a href="/wiki/Arabian_Mau" title="Arabian Mau">Arabian Mau</a>
+      <a href="/wiki/Asian_cat" title="Asian cat">Asian cat</a>
+      <a href="/wiki/Asian_Semi-longhair" title="Asian Semi-longhair">Asian Semi-longhair</a>
+      <a href="/wiki/Burmese_cat" title="Burmese cat">Burmese</a>
+      <a href="/wiki/Australian_Mist" title="Australian Mist">Australian Mist</a>
+      <a href="/wiki/Abyssinian_cat" title="Abyssinian cat">Abyssinian</a>
+      <a href="/wiki/Siamese_cat" title="Siamese cat">Siamese</a>
+      <a href="/wiki/Bambino_cat" title="Bambino cat">Bambino</a>
+      <a href="/wiki/Munchkin_cat" title="Munchkin cat">Munchkin</a>
+      <a href="/wiki/Bengal_cat" title="Bengal cat">Bengal</a>
+      <a href="/wiki/Abyssinian_cat" title="Abyssinian cat">Abyssinian</a>
+      <a href="/wiki/Siamese_cat" title="Siamese cat">Siamese</a>
+      <a href="/wiki/Persian_cat" title="Persian cat">Persian</a>
+      <a href="/wiki/Bombay_cat" title="Bombay cat">Bombay</a>
+      <a href="/wiki/Brazilian_Shorthair" title="Brazilian Shorthair">Brazilian Shorthair</a>
+      <a href="/wiki/British_Longhair" title="British Longhair">British Longhair</a>
+      <a href="/wiki/British_Shorthair" title="British Shorthair">British Shorthair</a>
+      <a href="/wiki/Burmese_cat" title="Burmese cat">Burmese</a>
+      <a href="/wiki/Burmilla" title="Burmilla">Burmilla</a>
+      <a href="/wiki/Burmese_cat" title="Burmese cat">Burmese</a>
+      <a href="/wiki/California_Spangled" title="California Spangled">California Spangled</a>
+      <a href="/wiki/Abyssinian_cat" title="Abyssinian cat">Abyssinian</a>
+      <a href="/wiki/Tabby_cat" title="Tabby cat">tabby</a>
+      <a href="/wiki/Chartreux" title="Chartreux">Chartreux</a>
+      <a href="/wiki/Chausie" title="Chausie">Chausie</a>
+      <a href="/wiki/Abyssinian_cat" title="Abyssinian cat">Abyssinian</a>
+      <a href="/wiki/Abyssinian_cat" title="Abyssinian cat">Abyssinian</a>
+      <a href="/wiki/Cymric_cat" title="Cymric cat">Cymric</a>
+      <a href="/wiki/Cyprus_cat" title="Cyprus cat">Cyprus</a>
+      <a href="/wiki/Devon_Rex" title="Devon Rex">Devon Rex</a>
+      <a href="/wiki/Donskoy_cat" title="Donskoy cat">Donskoy</a>
+      <a href="/wiki/Dragon_Li" title="Dragon Li">Dragon Li</a>
+      <a href="/wiki/American_Curl" title="American Curl">American Curl</a>
+      <a href="/wiki/Egyptian_Mau" title="Egyptian Mau">Egyptian Mau</a>
+      <a href="/wiki/European_Shorthair" title="European Shorthair">European Shorthair</a>
+      <a href="/wiki/Exotic_Shorthair" title="Exotic Shorthair">Exotic Shorthair</a>
+      <a href="/wiki/American_Shorthair" title="American Shorthair">American Shorthair</a>
+      <a href="/wiki/Foldex_cat" title="Foldex cat">Foldex</a>
+      <a href="/wiki/Exotic_Shorthair" title="Exotic Shorthair">Exotic Shorthair</a>
+      <a href="/wiki/Havana_Brown" title="Havana Brown">Havana Brown</a>
+      <a href="/wiki/Siamese_cat" title="Siamese cat">Siamese</a>
+      <a href="/wiki/Himalayan_cat" title="Himalayan cat">Himalayan</a>
+      <a href="/wiki/Persian_cat" title="Persian cat">Persian</a>
+      <a href="/wiki/Javanese_cat" title="Javanese cat">Javanese</a>
+      <a href="/wiki/Balinese_cat" title="Balinese cat">Balinese</a>
+      <a href="/wiki/African_wildcat" title="African wildcat">African wildcat</a>
+      <a href="/wiki/Khao_Manee" title="Khao Manee">Khao Manee</a>
+      <a href="/wiki/Kinkalow" title="Kinkalow">Kinkalow</a>
+      <a href="/wiki/Dwarf_cat" title="Dwarf cat">Dwarf</a>
+      <a href="/wiki/Korat" title="Korat">Korat</a>
+      <a href="/wiki/Korean_Bobtail" class="mw-redirect" title="Korean Bobtail">Korean Bobtail</a>
+      <a href="/wiki/Kurilian_Bobtail" title="Kurilian Bobtail">Kurilian Bobtail</a>
+      <a href="/wiki/Lambkin_(cat)" class="mw-redirect" title="Lambkin (cat)">Lambkin</a>
+      <a href="/wiki/Dwarf_cat" title="Dwarf cat">Dwarf</a>
+      <a href="/wiki/LaPerm" title="LaPerm">LaPerm</a>
+      <a href="/wiki/Lykoi" title="Lykoi">Lykoi</a>
+      <a href="/wiki/Maine_Coon" title="Maine Coon">Maine Coon</a>
+      <a href="/wiki/Manx_cat" title="Manx cat">Manx</a>
+      <a href="/wiki/Mekong_Bobtail" title="Mekong Bobtail">Mekong Bobtail</a>
+      <a href="/wiki/Minskin" title="Minskin">Minskin</a>
+      <a href="/wiki/Munchkin_cat" title="Munchkin cat">Munchkin</a>
+      <a href="/wiki/Minuet_cat" title="Minuet cat">Napoleon</a>
+      <a href="/wiki/Persian_cat" title="Persian cat">Persian</a>
+      <a href="/wiki/Munchkin_cat" title="Munchkin cat">Munchkin</a>
+      <a href="/wiki/Dwarf_cat" title="Dwarf cat">Dwarf</a>
+      <a href="/wiki/Nebelung" title="Nebelung">Nebelung</a>
+      <a href="/wiki/Norwegian_Forest_cat" title="Norwegian Forest cat">Norwegian Forest Cat</a>
+      <a href="/wiki/Ocicat" title="Ocicat">Ocicat</a>
+      <a href="/wiki/Abyssinian_cat" title="Abyssinian cat">Abyssinian</a>
+      <a href="/wiki/Oregon_Rex" title="Oregon Rex">Oregon Rex</a>
+      <a href="/wiki/Oriental_bicolour" title="Oriental bicolour">Oriental Bicolor</a>
+      <a href="/wiki/Oriental_Longhair" title="Oriental Longhair">Oriental Longhair</a>
+      <a href="/wiki/Oriental_Shorthair" title="Oriental Shorthair">Oriental Shorthair</a>
+      <a href="/wiki/Domestic_long-haired_cat" title="Domestic long-haired cat">Domestic Longhair</a>
+      <a href="/wiki/Oriental_Shorthair" title="Oriental Shorthair">Oriental Shorthair</a>
+      <a href="/wiki/European_Shorthair" title="European Shorthair">European Shorthair</a>
+      <a href="/wiki/Siamese_cat" title="Siamese cat">Siamese</a>
+      <a href="/wiki/Persian_cat" title="Persian cat">Persian (modern)</a>
+      <a href="/wiki/Traditional_Persian" title="Traditional Persian">Persian (traditional)</a>
+      <a href="/wiki/Greater_Iran" title="Greater Iran">Greater Iran</a>
+      <a href="/wiki/Peterbald" title="Peterbald">Peterbald</a>
+      <a href="/wiki/Donskoy_cat" title="Donskoy cat">Donskoy</a>
+      <a href="/wiki/Bobcat" title="Bobcat">bobcat</a>
+      <a href="/wiki/Ragamuffin_cat" title="Ragamuffin cat">Ragamuffin</a>
+      <a href="/wiki/Ragdoll_cat" class="mw-redirect" title="Ragdoll cat">Ragdoll</a>
+      <a href="/wiki/Himalayan_cat" title="Himalayan cat">Himalayan</a>
+      <a href="/wiki/Birman_cat" class="mw-redirect" title="Birman cat">Birman</a>
+      <a href="/wiki/Russian_Blue" title="Russian Blue">Russian Blue</a>
+      <a href="/wiki/Russian_Blue" title="Russian Blue">Russian Blue</a>
+      <a href="/wiki/Thai_cat" title="Thai cat">Thai</a>
+      <a href="/wiki/Savannah_cat" title="Savannah cat">Savannah</a>
+      <a href="/wiki/Cat" title="Cat">domestic cat</a>
+      <a href="/wiki/Bone" title="Bone">bones</a>
+      <a href="/wiki/Serengeti_cat" title="Serengeti cat">Serengeti</a>
+      <a href="/wiki/Bengal_cat" title="Bengal cat">Bengal</a>
+      <a href="/wiki/Siamese_cat" title="Siamese cat">Siamese</a>
+      <a href="/wiki/Thai_cat" title="Thai cat">Thai</a>
+      <a href="/wiki/Siberian_cat" title="Siberian cat">Siberian</a>
+      <a href="/wiki/Singapura_cat" title="Singapura cat">Singapura</a>
+      <a href="/wiki/Burmese_cat" title="Burmese cat">Burmese</a>
+      <a href="/wiki/American_Shorthair" title="American Shorthair">American Shorthair</a>
+      <a href="/wiki/Siamese_cat" title="Siamese cat">Siamese</a>
+      <a href="/wiki/Sokoke" title="Sokoke">Sokoke</a>
+      <a href="/wiki/Somali_cat" title="Somali cat">Somali</a>
+      <a href="/wiki/Sphynx_cat" title="Sphynx cat">Sphynx</a>
+      <a href="/wiki/Suphalak" title="Suphalak">Suphalak</a>
+      <a href="/wiki/Thai_cat" title="Thai cat">Thai</a>
+      <a href="/wiki/Korat" title="Korat">Korat</a>
+      <a href="/wiki/Tonkinese_cat" title="Tonkinese cat">Tonkinese</a>
+      <a href="/wiki/Burmese_cat" title="Burmese cat">Burmese</a>
+      <a href="/wiki/Bengal_cat" title="Bengal cat">Bengal</a>
+      <a href="/wiki/Turkish_Van" title="Turkish Van">Turkish Van</a>
+      <a href="/wiki/Van_cat" title="Van cat">Turkish Vankedisi</a>
+      <a href="/wiki/Ukrainian_Levkoy" title="Ukrainian Levkoy">Ukrainian Levkoy</a>
+      <a href="/wiki/Donskoy_cat" title="Donskoy cat">Donskoy</a>
+      <a href="/wiki/New_York_(state)" title="New York (state)">New York</a>
+    </p>
+  </div>
+</body>
+
+</html>
