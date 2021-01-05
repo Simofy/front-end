@@ -4,11 +4,12 @@ const assert = require('assert');
 const express = require("express");
 const app = express();
 
+const appPort = 2020;
 
 app.use(express.static('../'))
 
-app.listen(process.env.APP_PORT, () => {
-  console.log((new Date()).toISOString(), `Hello ssh! Port: ${process.env.APP_PORT}`);
+app.listen(appPort, () => {
+  console.log((new Date()).toISOString(), `Hello ssh! Port: ${appPort}`);
 });
 
 app.get('/api/generate-shopping-cart', (req, res, next) => {
