@@ -9,7 +9,14 @@ function populateCart(idName, tagName, limit) {
     .then((response) => response.json())
     .then((data) => {
       const container = document.getElementById(idName);
-      data.forEach((item) => {
+      for (let i = 0; i < data.length; i++) {
+        const item = data[i];
+        // Kaip atrodo item objektas
+        const sablonas = {
+          "name": "Dexter Jettster",
+          "price": 91.58376969420108,
+          "vegan": true
+        };
         //______________________
         const element = document.createElement(tagName);
         const tableCellName = document.createElement('td');
@@ -25,7 +32,7 @@ function populateCart(idName, tagName, limit) {
 
         container.appendChild(element);
         //______________________
-      });
+      }
     })
 }
 
