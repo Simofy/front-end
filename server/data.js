@@ -15435,4 +15435,8 @@ const data_ezerai = {
   ]
 }
 
-export default data_ezerai;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = data_ezerai;

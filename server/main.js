@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { uniqueNamesGenerator, starWars } = require('unique-names-generator');
 const express = require("express");
-const dataEzerai = require('./data');
+const dataEzerai = require('./data').default;
 const app = express();
 
 const appPort = 3000;
@@ -18,8 +18,9 @@ app.get('/api/get-random-lake', (req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
   res.setHeader('Access-Control-Allow-Credentials', true); // If needed
 
-  const index = Math.floor(dataEzerai.length * Math.random());
-  res.json(dataEzerai[index]);
+  const index = Math.floor(dataEzerai.Lapas1.length * Math.random());
+  console.log(dataEzerai.Lapas1.length)
+  res.json(dataEzerai.Lapas1[index]);
 
 })
 
