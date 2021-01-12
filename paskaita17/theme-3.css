@@ -1,0 +1,12 @@
+.nav {
+  background-color: blueviolet;
+}
+
+.sidebar {
+  background-color: azure;
+  width: 100px;
+}
+
+.content {
+  background-color: black;
+}

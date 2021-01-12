@@ -1,0 +1,12 @@
+.nav {
+  background-color: red;
+}
+
+.sidebar {
+  background-color: black;
+  width: 500px;
+}
+
+.body {
+  /* flex-direction: row-reverse; */
+}
