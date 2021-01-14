@@ -15,6 +15,10 @@ window.addEventListener('load', function () {
 
     for (let k = 0; k < 4; k += 1) {
       const hex = document.createElement('div');
+
+      hex.classList.toggle('')
+
+
       hex.className = 'hexagon';
       const state = list[`hex-${i}-${k}`];
       if (state) {
@@ -28,6 +32,36 @@ window.addEventListener('load', function () {
           default:
             break;
         }
+
+        for (let i = 0; i < 10; i += 1) {
+          if (i === 5) {
+            continue;
+          }
+          console.log(i);
+        }
+
+        function test(state) {
+          let a = '';
+
+          switch (state) {
+            case 'green':
+              console.log('green');
+              break;
+            case 'blue':
+              console.log('blue');
+              break;
+            case 'red':
+              console.log('red');
+              break;
+            case 'yellow':
+              console.log('yellow');
+              break;
+            default:
+              console.log('default');
+              break;
+          }
+        }
+
       }
       hex.addEventListener('click', function () {
         const oldState = hex.getAttribute('data-state');
