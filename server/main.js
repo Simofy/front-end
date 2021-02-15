@@ -56,7 +56,7 @@ app.get('/api/generate-shopping-cart', (req, res, next) => {
 });
 
 
-const url = 'mongodb://localhost:27017';
+const url = 'mongodb://127.0.0.1:27017';
 const dbName = 'simutis-2020';
 
 MongoClient.connect(url, function (err, client) {
