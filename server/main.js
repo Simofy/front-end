@@ -72,7 +72,7 @@ MongoClient.connect(url, function (err, client) {
 
     const messages = await messagesCollection.find({}, {
       sort: {
-        createdAt: 1
+        createdAt: -1
       },
       limit: 10
     }).toArray();
