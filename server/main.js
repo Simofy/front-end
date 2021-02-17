@@ -70,7 +70,11 @@ MongoClient.connect(url, function (err, client) {
 
   app.get('/api/messages', async (req, res, next) => {
 
-    const messages = await messagesCollection.find({}).toArray();
+    const messages = await messagesCollection.find({}, {
+      sort: {
+        createdAt: 1
+      }
+    }).limit(10).toArray();
     res.json(messages);
   });
 
@@ -83,6 +87,7 @@ MongoClient.connect(url, function (err, client) {
     if (message && name) {
       messagesCollection.insertOne({
         message,
+        createdAt: new Date(),
         name
       });
     }
