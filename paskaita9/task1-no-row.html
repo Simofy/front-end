@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" href=https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css>
+
+  <style>
+    div[class*=color] {
+      height: 64px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .color-1 {
+      background-color: darkkhaki;
+    }
+
+    .color-2 {
+      background-color: chartreuse;
+      color: black !important;
+    }
+
+    .color-3 {
+      background-color: darkorange;
+    }
+
+    .color-4 {
+      background-color: darkslateblue;
+    }
+
+    p {
+      margin-top: 16px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav bg-light justify-content-center">
+    <a class="nav-link active" href="#">Active</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </nav>
+  <p>
+    Naudoti tik col-* ir offset-*
+    <br />
+    Bandyti atspeti koks offset pagal antra elementa
+  </p>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col color-1">span 1</div>
+      <div class="col color-2">span 2 offset 5</div>
+      <div class="col color-3">span 3</div>
+      <div class="col-5 color-4">span 4</div>
+      <div class="col color-1">span 6</div>
+      <div class="col color-2">span 3</div>
+      <div class="col color-3">span 5</div>
+      <div class="col color-4">span 3</div>
+    </div>
+  </div>
+</body>
+
+</html>
