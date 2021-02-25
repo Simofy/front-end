@@ -17,8 +17,8 @@
     }
 
     a {
-      width: 48px;
-      height: 48px;
+      width: 148px;
+      height: 148px;
       border: solid 2px black;
       margin: 4px;
       display: flex;
@@ -26,6 +26,24 @@
       align-items: center;
       font-size: 12px;
       text-align: center;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    a:hover>img {
+      opacity: 0.2;
+    }
+
+    a>img {
+      transition: all 200ms;
+      object-fit: cover;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
