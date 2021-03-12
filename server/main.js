@@ -2,9 +2,11 @@ require('dotenv').config();
 const MongoClient = require('mongodb').MongoClient;
 const { uniqueNamesGenerator, starWars } = require('unique-names-generator');
 const express = require("express");
+const shortid = require('shortid');
 const dataLakes = require('./lakeData.json');
 const dataSlang = require('./slangData.json');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const cookieParser = require("cookie-parser");
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -12,18 +14,25 @@ app.use(bodyParser.json())
 const appPort = 3000;
 
 app.use(express.static(__dirname + '/public'));
+app.use(cookieParser());
 
 app.listen(appPort, () => {
   console.log((new Date()).toISOString(), `Hello ssh! Port: ${appPort}`);
 });
 
 app.use(function (req, res, next) {
+  console.log(req.cookies);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
   res.setHeader('Access-Control-Allow-Credentials', true); // If needed
   next();
 })
+
+app.get('/api/test', (req, res, next) => {
+  console.log(req.cookies);
+  res.json({});
+});
 
 app.get('/api/get-random-lake', (req, res, next) => {
 
@@ -44,6 +53,7 @@ app.get('/api/generate-shopping-cart', (req, res, next) => {
   const response = [];
   for (let i = 0; i < total; i++) {
     response.push({
+      id: shortid.generate(),
       name: uniqueNamesGenerator({
         dictionaries: [starWars],
         style: 'capital',
