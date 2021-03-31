@@ -127,10 +127,6 @@ MongoClient.connect(url, function (err, client) {
 
   // Game RESTFUL api
 
-  app.get("/api/board/documentation", function (req, res) {
-    res.sendFile(__dirname + "/public/gameDocumentation.html");
-  });
-
   app.get("/api/board/status", async (req, res) => {
     const status = await boardStatusCollection
       .aggregate([
