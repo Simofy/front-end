@@ -181,8 +181,8 @@ MongoClient.connect(url, function (err, client) {
       .aggregate([
         {
           $match: {
-            x: Number(x),
-            y: Number(y),
+            x,
+            y,
           },
         },
         {
