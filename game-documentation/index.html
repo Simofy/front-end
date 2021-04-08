@@ -59,6 +59,7 @@
     <blockquote>
       <p><code>name</code> - name of user that </p>
       <p><code>color</code> - color </p>
+      <p><code>data</code> - ?object </p>
       <p><code>createdAt</code> - last time cell was updated</p>
     </blockquote>
     </p>
@@ -71,6 +72,9 @@
     data: {
       name: "Alio valio",
       color: "red",
+      data: {
+        radius: 10
+      },
       createdAt: "2021-03-31T19:27:28.329Z"
     }
   }, ...</code></pre>
@@ -107,6 +111,8 @@
   <blockquote>
     <p><code>x</code> - origin of cell</p>
     <p><code>y</code> - origin of cell</p>
+    ---OR---
+    <p><code>id</code> - _id of cell</p>
   </blockquote>
   <div>Response</div>
   <div>Array of:</div>
@@ -117,6 +123,7 @@
     <blockquote>
       <p><code>name</code> - name of user </p>
       <p><code>color</code> - color </p>
+      <p><code>data</code> - ?object </p>
       <p><code>createdAt</code> - time when cell changes where created</p>
     </blockquote>
     </p>
@@ -130,11 +137,17 @@
       {
         name: "12Alio valio",
         color: "red",
+        data: {
+          radius: 10
+        },
         createdAt: "2021-03-31T19:29:15.040Z"
       },
       {
         name: "12Alio valio",
         color: "red",
+        data: {
+          radius: 0
+        },
         createdAt: "2021-03-31T19:33:26.296Z"
       }
     ]

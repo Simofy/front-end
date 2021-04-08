@@ -1,5 +1,6 @@
 require("dotenv").config();
 const MongoClient = require("mongodb").MongoClient;
+const ObjectId = require("mongodb").ObjectID;
 const { uniqueNamesGenerator, starWars } = require("unique-names-generator");
 const express = require("express");
 const shortid = require("shortid");
@@ -162,7 +163,7 @@ MongoClient.connect(url, function (err, client) {
         },
         {
           $project: {
-            _id: 0,
+            _id: 1,
             x: 1,
             y: 1,
             data: {
@@ -176,18 +177,22 @@ MongoClient.connect(url, function (err, client) {
   });
 
   app.get("/api/board/cell", async (req, res) => {
-    const { x, y } = req.query;
+    const { x, y, id } = req.query;
     const allGoodCells = await boardCollection
       .aggregate([
         {
-          $match: {
-            x,
-            y,
-          },
+          $match: id
+            ? {
+                _id: ObjectId(id),
+              }
+            : {
+                x: Number(x),
+                y: Number(y),
+              },
         },
         {
           $project: {
-            _id: 0,
+            _id: 1,
             x: 1,
             y: 1,
             history: 1,
@@ -199,23 +204,34 @@ MongoClient.connect(url, function (err, client) {
   });
 
   app.post("/api/board", async (req, res) => {
-    const { x, y, name, color } = req.body;
+    const { x, y, name, color, data, id } = req.body;
     try {
       if (
-        x === undefined ||
-        y === undefined ||
-        name === undefined ||
-        color === undefined
+        (typeof x !== "number" && x !== undefined) ||
+        (typeof y !== "number" && y !== undefined) ||
+        (color !== undefined && typeof color !== "string") ||
+        (name !== undefined && typeof name !== "string")
       ) {
-        throw new Error("You have to specify: x, y, name, color");
+        throw new Error("Wrong types!");
       }
-      const toUpdateCell = await boardCollection.findOne({
-        x,
-        y,
-      });
+      if (name === undefined) {
+        throw new Error("You have to specify: name");
+      }
+      let toUpdateCell = null;
+      if (id) {
+        toUpdateCell = await boardCollection.findOne({
+          _id: ObjectId(id),
+        });
+      } else {
+        toUpdateCell = await boardCollection.findOne({
+          x,
+          y,
+        });
+      }
       const historyBlock = {
         name,
         color,
+        data,
         createdAt: new Date(),
       };
       if (toUpdateCell) {
@@ -265,3 +281,32 @@ MongoClient.connect(url, function (err, client) {
  * extra work
  *
  */
+
+//  db.board.aggregate( [
+//   // first we add the ``sortr`` field so that we can deal with empty arrays.
+//   // if we see an empty array, we create one with a large negative number
+//   { $project: {
+//       x: 1,
+//       y: 1,
+//       history: 1,
+//       sortr: { $cond: [ { $eq : [ '$history', []  ] }, [ -100000 ], '$history' ] }
+//   } },
+
+//   // then we unwind on our sorting-r-variant
+//   { $unwind: '$sortr' },
+
+//   // so that we can group by ID and pick out the last of the $sortr values
+//   { $group: {
+//       _id: '$_id',
+//       x: { $first: '$x' },
+//       y: { $first: '$y' },
+//       history: { $first: '$history' },
+//       sortr: { $last: '$sortr' }
+//   } },
+
+//   // then we sort by the last items over all the documents
+//   { $sort: { sortr: 1 } },
+
+//   // and reproject so that we get rid of the ``sortr`` field
+//   { $project: { x: 1, y: 1, history: 1 } }
+// ] )
