@@ -205,6 +205,7 @@ MongoClient.connect(url, function (err, client) {
 
   app.post("/api/board", async (req, res) => {
     const { x, y, name, color, data, id } = req.body;
+    let idToReturn = null;
     try {
       if (
         (typeof x !== "number" && x !== undefined) ||
@@ -219,6 +220,7 @@ MongoClient.connect(url, function (err, client) {
       }
       let toUpdateCell = null;
       if (id) {
+        idToReturn = id;
         toUpdateCell = await boardCollection.findOne({
           _id: ObjectId(id),
         });
@@ -235,17 +237,20 @@ MongoClient.connect(url, function (err, client) {
         createdAt: new Date(),
       };
       if (toUpdateCell) {
+        idToReturn = toUpdateCell._id;
         await boardCollection.updateOne(toUpdateCell, {
           $push: {
             history: historyBlock,
           },
         });
       } else {
-        await boardCollection.insertOne({
-          x,
-          y,
-          history: [historyBlock],
-        });
+        idToReturn = (
+          await boardCollection.insertOne({
+            x,
+            y,
+            history: [historyBlock],
+          })
+        ).insertedId;
       }
       await boardStatusCollection.updateOne(
         {},
@@ -266,6 +271,7 @@ MongoClient.connect(url, function (err, client) {
       res.status(200);
       res.json({
         status: "OK",
+        id: idToReturn,
       });
     } catch (e) {
       console.log(e);
