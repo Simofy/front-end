@@ -117,16 +117,14 @@ MongoClient.connect(url, function (err, client) {
   });
 
   app.post("/api/cannumo", (req, res, next) => {
-    const { message, name, type, data } = req.body;
-    if (message && name) {
-      cannumoCollection.insertOne({
-        message,
-        name,
-        type,
-        data,
-        createdAt: new Date(),
-      });
-    }
+    const { email, name, type, data } = req.body;
+    cannumoCollection.insertOne({
+      email,
+      name,
+      type,
+      data,
+      createdAt: new Date(),
+    });
     res.json();
   });
 
