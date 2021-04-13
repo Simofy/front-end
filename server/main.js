@@ -80,6 +80,8 @@ MongoClient.connect(url, function (err, client) {
 
   const boardStatusCollection = db.collection("board-status");
 
+  const cannumoCollection = db.collection("cannumo");
+
   boardStatusCollection.updateOne(
     {},
     {
@@ -112,6 +114,20 @@ MongoClient.connect(url, function (err, client) {
       )
       .toArray();
     res.json(messages);
+  });
+
+  app.post("/api/cannumo", (req, res, next) => {
+    const { message, name, type, data } = req.body;
+    if (message && name) {
+      cannumoCollection.insertOne({
+        message,
+        name,
+        type,
+        data,
+        createdAt: new Date(),
+      });
+    }
+    res.json();
   });
 
   app.post("/api/messages", (req, res, next) => {
