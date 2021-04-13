@@ -195,6 +195,14 @@ MongoClient.connect(url, function (err, client) {
     const deleted = await boardCollection.deleteOne({
       _id: ObjectId(id),
     });
+    await boardStatusCollection.updateOne(
+      {},
+      {
+        $inc: {
+          update: 1,
+        },
+      }
+    );
     res.json(deleted);
   });
 
