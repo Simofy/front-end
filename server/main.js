@@ -190,6 +190,14 @@ MongoClient.connect(url, function (err, client) {
     res.json(allGoodCells);
   });
 
+  app.delete("/api/board/cell", async (req, res) => {
+    const { id } = req.body;
+    const allGoodCells = await boardCollection.deleteOne({
+      _id: ObjectId(id),
+    });
+    res.json(allGoodCells);
+  });
+
   app.get("/api/board/cell", async (req, res) => {
     const { x, y, id } = req.query;
     const allGoodCells = await boardCollection
