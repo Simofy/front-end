@@ -13,7 +13,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const appPort = 3001;
+const appPort = 3000;
 
 app.use(express.static(__dirname + "/public"));
 app.use(cookieParser());
