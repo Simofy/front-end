@@ -5,11 +5,13 @@
   "main": "main.js",
   "scripts": {
     "start": "nodemon main.js",
+    "swagger-autogen": "node swagger.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.37",
     "assert": "^2.0.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
@@ -17,6 +19,8 @@
     "express": "^4.17.1",
     "mongodb": "^3.6.3",
     "shortid": "^2.2.16",
+    "swagger-autogen": "^2.7.9",
+    "swagger-ui-express": "^4.1.6",
     "unique-names-generator": "^4.3.1"
   },
   "devDependencies": {
