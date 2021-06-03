@@ -1,53 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <style>
-      th {
-        border: 1px solid black;
-        padding: 10px 30px;
-      }
+<html>
 
- 
+<body>
 
-      table {
-        border: 1px solid black;
+  <h2>TIESA</h2>
+
+  <p id="bandom"></p>
+
+  <script>
+    let numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,];
+    let i = 4;
+    let text = "TIESA";
+    for (i = 4; i <= 44; i++) {
+      if (i % 4 == 0) {
+        text += "4" + i + "<br>";
       }
-    </style>
-  </head>
-  <body>
-      <table cellspacing="0" cellpadding="0">
-        <tr>
-          <th>1</th>
-          <th colspan="2">2</th>
-          <th>1</th>
-        </tr>
-        <tr>
-          <th>1</th>
-          <th colspan="2">2</th>
-          <th>1</th>
-        </tr>
-        <tr>
-          <th>1</th>
-          <th>1</th>
-          <th>1</th>
-          <th>1</th>
-        </tr>
-        <tr>
-          <th>1</th>
-          <th colspan="2">2</th>
-          <th>1</th>
-        </tr>
-        <tr>
-          <th>1</th>
-          <th colspan="2" rowspan="2">2</th>
-          <th>1</th>
-        </tr>
-        <tr>
-          <th>1</th>
-          <th>1</th>
-        </tr>
-      </table>
-  </body>
+    }
+    document.getElementById("bandom").innerHTML = text;
+  </script>
+
+</body>
+
 </html>

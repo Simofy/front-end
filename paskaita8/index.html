@@ -51,25 +51,25 @@
       flex: 1;
     }
 
-    .container>div:nth-child(1) {
+    .container>div:not(.header):nth-child(1) {
       background-color: aqua;
     }
 
-    .container>div:nth-child(2) {
+    .container>div:not(.header):nth-child(2) {
       background-color: brown;
     }
 
-    .container>div:nth-child(3) {
+    .container>div:not(.header):nth-child(3) {
       background-color: cadetblue;
     }
 
     /* Extra small devices (phones, 600px and down) */
-    @media (orientation: landscape) and (max-width: 710px) {
+    @media (max-width: 710px) {
       .container {
         flex-direction: column;
       }
 
-      .container>div:nth-child(1) {
+      .container>div:not(.header):nth-child(1) {
         display: none;
       }
 
@@ -109,10 +109,10 @@
 </head>
 
 <body>
-  <div class="header">
-    Header
-  </div>
   <div class="container">
+    <div class="header">
+      Header
+    </div>
     <div></div>
     <div></div>
     <div></div>

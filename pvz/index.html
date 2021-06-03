@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            
+
+            html, body {
+             padding: 0;  
+             margin: 0; 
+             width: 100%;
+             height: 100%;
+            }
+
+            @media (max-width: 710px) {
+            .container {
+                flex-direction:column;
+            }
+            .container>div:nth-child(3) {
+                display:none;
+            }
+            .navigacija>.nuorodos {
+                display: flex;
+                flex-direction: row;
+                position: sticky;
+                top:0;
+            }
+
+            }
+
+            .container {
+                display: flex;
+                height: 500vh;
+                background-color: cornflowerblue;
+                justify-content: space-evenly;
+            }
+
+            .navigacija {
+                background-color: cyan;
+                flex: 0;
+                min-width: 200px;
+            }
+
+            .turinys {
+                background-color: bisque;
+                flex: 1;
+                flex-direction: column;
+                display: flex;
+            }
+
+            .reklama {
+                background-color: hotpink;
+                flex: 0;
+                min-width: 200px;
+            }
+
+            .nuorodos {
+                display: flex;
+                position: sticky;
+                flex-direction: column;
+                top: 25px;
+                background-color: khaki;
+            }
+
+            .nuorodos > a {
+                width: 100%;
+                margin: 20px 0;
+                text-align: center;
+            }
+
+            div[id|=nuoroda] {
+                flex: 1;
+            }
+
+            #nuoroda-1 {
+                background-color: lightgrey;
+            }
+
+            #nuoroda-2 {
+                background-color: lightpink;
+            }
+
+            #nuoroda-3 {
+                background-color: lightsalmon;
+            }
+
+            #nuoroda-4 {
+                background-color: lightskyblue;
+            }
+
+            #nuoroda-5 {
+                background-color: lightyellow;
+            }
+            .reklama.open {
+              display: block !important;
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="navigacija">
+                <div class="nuorodos">
+                    <a href="#nuoroda-1">Nuoroda 1</a>
+                    <a href="#nuoroda-2">Nuoroda 2</a>
+                    <a href="#nuoroda-3">Nuoroda 3</a>
+                    <a href="#nuoroda-4">Nuoroda 4</a>
+                    <a id="open-container" href="#nuoroda-5">Reklama</a>
+                </div>
+            </div>
+            <div class="turinys">
+                <div  id="nuoroda-1"></div>
+                <div  id="nuoroda-2"></div>
+                <div  id="nuoroda-3"></div>
+                <div  id="nuoroda-4"></div>
+                <div  id="nuoroda-5"></div>
+            </div>
+            <div id="reklama" class="reklama">
+              <div id="close-field"></div>
+            </div>
+        </div>
+    </body>
+    <script>
+      const element = document.getElementById('open-container');
+      element.onclick = function(e) {
+        e.preventDefault();
+        const reklama = document.getElementById('reklama');
+        reklama.classList.add('open');
+      }
+      const closeFieldElm = document.getElementById('close-field');
+      closeFieldElm.onclick = function(e) {
+        e.preventDefault();
+        const reklama = document.getElementById('reklama');
+        reklama.classList.remove('open');
+      }
+    </script>
+</html>

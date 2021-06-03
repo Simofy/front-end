@@ -24,7 +24,7 @@ gulp.task('sass', gulp.series(function (done) {
       outputStyle: 'compressed'
     }))
     .pipe(autoprefixer())
-    .pipe(gulp.dest('app'))
+    .pipe(gulp.dest('public/style'))
     .pipe(browserSync.stream());
   done();
 }));

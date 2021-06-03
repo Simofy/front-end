@@ -237,41 +237,52 @@
       <th>1</th>
       <th class="hover" colspan="2">2</th>
       <th>1</th>
-      <th>1</th>
+      <th><input type="radio" name="cat-select"></th>
     </tr>
     <tr>
       <td>1</td>
       <td class="hover" colspan="2">2</td>
       <td>1</td>
-      <td>1</td>
+      <td><input type="radio" name="cat-select"></td>
     </tr>
     <tr>
       <td>1</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>1</td>
+      <td><input type="radio" name="cat-select"></td>
     </tr>
     <tr>
       <td>1</td>
       <td class="hover" colspan="2">2</td>
       <td>1</td>
-      <td>1</td>
+      <td><input type="radio" name="cat-select"></td>
     </tr>
     <tr>
       <td>1</td>
       <td class="hover" colspan="2" rowspan="2">2x2</td>
       <td>1</td>
-      <td>1</td>
+      <td><input type="radio" name="cat-select"></td>
     </tr>
     <tr>
       <td>1</td>
       <td>1</td>
-      <td>1</td>
+      <td>
+        <div class="center">
+          <input type="radio" name="cat-select">
+        </div>
+      </td>
     </tr>
   </table>
 
   <style>
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
     .test,
     .test th,
     .test td {
@@ -284,19 +295,19 @@
       position: relative;
     }
 
-    .test tr:hover {
+    tr:hover {
       background-color: rgba(255, 228, 196, .4);
       border: solid;
       border-style: dashed;
       height: 100px;
     }
 
-    .test tr:nth-child(even) {
+    tr:nth-child(even) {
       background-color: beige;
     }
 
 
-    .test tr:hover td::after{
+    .test tr:hover td::after {
       content: "0";
       position: absolute;
       bottom: 10px;

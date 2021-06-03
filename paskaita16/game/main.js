@@ -12,7 +12,7 @@ function setup() {
 
   const gameContainer = document.querySelector('#game');
 
-  const girdSize = 2;
+  const girdSize = 8;
 
   const numberList = [];
 
@@ -25,41 +25,64 @@ function setup() {
 
   const cardSolved = [];
 
+  const state = {
+    beforeHide: false,
+  }
+
   for (let i = 0; i < girdSize; i += 1) {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerText = numberList.splice(Math.floor(Math.random() * numberList.length), 1)[0];
 
     card.addEventListener('click', function () {
-      card.style.color = 'white';
-
+      if (state.beforeHide) {
+        return;
+      }
+      card.classList.add('open');
       if (selected !== undefined) {
         const innerTextFirst = cardList[selected].innerText;
         const innerTextSecond = card.innerText;
-        if (innerTextFirst == innerTextSecond) {
-          cardList[selected].className = 'card solved';
-          card.className = 'card solved';
+        if (innerTextFirst == innerTextSecond && cardList[selected] !== card) {
+
           cardSolved.push(selected);
           cardSolved.push(i);
+          const oldSelected = selected;
+          setTimeout(function () {
+            cardList[oldSelected].className = 'card solved';
+            card.className = 'card solved';
+            anime({
+              targets: [cardList[oldSelected], card],
+              translateY: 1000
+            });
+          }, 300);
 
           if (girdSize === cardSolved.length) {
             document.querySelector('.congrats-container').style.display = '';
           }
+        } else {
+          state.beforeHide = true;
+          setTimeout(function () {
+            state.beforeHide = false;
+            for (let k = 0; k < cardList.length; k += 1) {
+              cardList[k].classList.remove('open');
+            }
+          }, 300);
         }
+
+
         selected = undefined;
-        console.log(innerTextFirst, innerTextSecond, i);
 
         score += 1;
         scoreElement.innerHTML = score;
 
-      }
-
-      for (let k = 0; k < cardList.length; k += 1) {
-        if (i !== k && selected !== i) {
-          cardList[k].style.color = 'black';
+      } else {
+        for (let k = 0; k < cardList.length; k += 1) {
+          if (i !== k && selected !== i) {
+            cardList[k].classList.remove('open');
+          }
         }
+        selected = i;
       }
-      selected = i;
     });
 
     cardList.push(card);

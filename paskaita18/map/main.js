@@ -44,7 +44,7 @@
 //     });
 // });
 
-window.addEventListener('load', function () {
+window.addEventListener("load", function () {
   // Creating map options
   const mapOptions = {
     center: [54.6831417351062, 25.27912111788835],
@@ -62,19 +62,21 @@ window.addEventListener('load', function () {
   // Adding layer to the map
   map.addLayer(layer);
 
-  fetch('https://raw.githubusercontent.com/vilnius/mparking/master/parking_places.csv')
+  fetch(
+    "https://raw.githubusercontent.com/vilnius/mparking/master/parking_places.csv"
+  )
     .then((response) => response.text())
     .then((list) => {
-      const listBus = list.split('\n');
+      const listBus = list.split("\n");
       const zones = {};
       for (let i = 1; i < listBus.length; i += 1) {
-        const zone = listBus[i].split(',');
+        const zone = listBus[i].split(",");
         const zoneId = zone[1];
         const long = zone[3];
         const lat = zone[2];
         const order = zone[4];
         const type = zone[5];
-        console.log(zoneId)
+        console.log(zoneId);
         if (zones[zoneId]) {
           zones[zoneId].push({
             longitude: long,
@@ -83,25 +85,27 @@ window.addEventListener('load', function () {
             type,
           });
         } else {
-          zones[zoneId] = [{
-            longitude: long,
-            latitude: lat,
-            order,
-            type,
-          }]
+          zones[zoneId] = [
+            {
+              longitude: long,
+              latitude: lat,
+              order,
+              type,
+            },
+          ];
         }
-
       }
       const zoneslist = Object.keys(zones);
       for (let i = 0; i < zoneslist.length; i += 1) {
         const zone = zones[zoneslist[i]];
         console.log(zone);
         var polygon = L.polygon([
-          zone.sort((a, b) => a.order - b.order).map((z) => ([z.longitude, z.latitude]))
+          zone
+            .sort((a, b) => a.order - b.order)
+            .map((z) => [z.longitude, z.latitude]),
         ]).addTo(map);
         // polygon.bindPopup(type == 26 ? 'Geltona' : type);
       }
       // console.log(listBus)
     });
 });
-

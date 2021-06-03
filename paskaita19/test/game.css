@@ -1,0 +1,186 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.anim-container div {
+  font-weight: bold;
+  font-size: 20px;
+  color: darkgrey;
+  align-items: center;
+  text-align: center;
+}
+
+@keyframes anim-1 {
+  0% {
+    top: 50px;
+    right: 50px;
+  }
+  25% {
+    top: calc(100% - 150px + 50px);
+    left: calc(100% - 150px + 50px);
+  }
+  75% {
+    top: calc(100% - 150px + 25px);
+  }
+  100% {
+    top: 50px;
+    right: 50px;
+  }
+}
+
+@keyframes anim-2 {
+  0% {
+    transform: rotateX(180deg) translate(0%, 50%);
+  }
+  50% {
+    transform: rotateY(180deg) translate(-200px, 200px);
+  }
+  75% {
+    transform: rotateZ(180deg) translate(-300px, 100px);
+  }
+  100% {
+    transform: rotateX(180deg) translate(0%, 50%);
+  }
+}
+
+@keyframes anim-3 {
+  0% {
+    transform: translate(0px) scale(0);
+  }
+  50% {
+    transform: translate(-300px, 20px) scale(0.7);
+  }
+  75% {
+    transform: translate(-60px, 450px);
+  }
+  100% {
+    transform: translate(0px) scale(1);
+  }
+}
+
+@keyframes anim-4 {
+  0% {
+    bottom: 50px;
+    left: 300px;
+    transform: scale(1);
+  }
+  25% {
+    top: calc(100% - 150px + 50px);
+  }
+  75% {
+    transform: scale(0.5);
+  }
+  100% {
+    bottom: 50px;
+    left: 300px;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes anim-5 {
+  0% {
+    top: 50px;
+    right: 100px;
+    transform: rotateY(180deg);
+    transform: scale(0);
+  }
+  25% {
+    top: calc(100% - 150px + 50px);
+  }
+  75% {
+    transform: scale(1);
+  }
+  100% {
+    top: -10px;
+    right: 100px;
+    transform: scale(0);
+  }
+}
+
+@keyframes anim-6 {
+  0% {
+    transform: translateX(30px);
+  }
+  25% {
+    transform: translateX(-700px);
+  }
+  75% {
+    transform: translateY(-400px);
+  }
+  100% {
+    transform: translateX(30px);
+  }
+}
+.animated-1 {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  width: 150px;
+  height: 150px;
+  background-color: rgb(226, 116, 43);
+  animation: anim-1 2s infinite;
+}
+
+.animated-2 {
+  position: fixed;
+  top: 300px;
+  left: 300px;
+  width: 150px;
+  height: 150px;
+  background-color: rgb(214, 226, 43);
+  animation: anim-2 2s infinite;
+}
+
+.animated-3 {
+  position: fixed;
+  top: 50px;
+  right: 60px;
+  width: 150px;
+  height: 150px;
+  background-color: rgb(43, 226, 43);
+  animation: anim-3 1.5s infinite;
+}
+
+.animated-4 {
+  position: fixed;
+  top: 150px;
+  right: 300px;
+  width: 150px;
+  height: 150px;
+  background-color: rgb(129, 148, 151);
+  animation: anim-4 1.2s infinite;
+}
+
+.animated-5 {
+  position: fixed;
+  bottom: 50px;
+  left: 70px;
+  width: 150px;
+  height: 150px;
+  background-color: rgb(62, 37, 131);
+  animation: anim-5 4.3s infinite;
+}
+
+.animated-6 {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 150px;
+  height: 150px;
+  background-color: rgb(33, 9, 56);
+  animation: anim-6 1.5s infinite;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #faf4;
+  display: none;
+}

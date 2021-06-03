@@ -33,13 +33,13 @@
   const list = [
     "Augustas",
     "Benjaminas",
-    "Deimantė",
+    // "Deimantė",
     "Dovilė",
     "Ernestas",
     "Gabrielius",
-    "Indrė",
+    // "Indrė",
     "Iveta",
-    "Justas",
+    // "Justas",
     "Justina",
     "Liudas",
     "Raimondas",
@@ -50,13 +50,13 @@
   const listNew = [
     "Augustas",
     "Benjaminas",
-    "Deimantė",
+    // "Deimantė",
     "Dovilė",
     "Ernestas",
     "Gabrielius",
-    "Indrė",
+    // "Indrė",
     "Iveta",
-    "Justas",
+    // "Justas",
     "Justina",
     "Liudas",
     "Raimondas",
@@ -71,12 +71,12 @@
   };
 
   document.getElementById("button").onclick = function (event) {
-    if(listNew.length) {
-    const index = Math.floor(
-      Math.random() * listNew.length
-    );
-    document.getElementById("result").innerHTML = listNew[index];
-    listNew.splice(index, 1);
+    if (listNew.length) {
+      const index = Math.floor(
+        Math.random() * listNew.length
+      );
+      document.getElementById("result").innerHTML = listNew[index];
+      listNew.splice(index, 1);
     } else {
       document.getElementById("result").innerHTML = 'Nebere zmoniu';
     }

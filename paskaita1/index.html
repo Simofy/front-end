@@ -1,40 +1,162 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Demo puslapis</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
 
-  </head>
-  <body class="p-demo">
-    <p style="border: 10px blue solid">
-      <a href="#planets">about planets</a>
-    </p>
-    <button>Click me</button>
-    Before text
-    <span style="display: block; border: 10px blue solid">In line element</span>
-    <span style="display: block; border: 10px blue solid">In line element</span>
-    <span style="display: block; border: 10px blue solid">In line element</span>
-    <span style="display: block; border: 10px blue solid">In line element</span>
-    <span style="display: block; border: 10px red solid">In line element</span>
-    <span style="display: block; border: 10px red solid">In line element</span>
-    After text
-    <div id="planets">
-      <!-- asd sd as  -->
-      <i><strong>Planets</strong></i>
-      <div class="italic-and-bold">Planets</div>
-    </div>
-    <a
-      class="custom-button"
-      href="https://google.com"
-      target="_blank"
-      >Click me</a
-    >
-    <div>
-      <div>
-        <div>
-          <div></div>
-        </div>
-      </div>
-    </div>
-  </body>
+<html>
+
+<head>
+  <link rel='stylesheet' type='text/css' media='screen' href='/style.css'>
+  <meta>
+  <style>
+    p {
+      margin: 0 !important;
+    }
+
+    /* html {
+      background-color: rgb(20, 10, 20);
+    } */
+    /* 
+    .header>.navigation {
+      width: 50px;
+      height: 50px;
+      margin: 8px;
+      background-color: aquamarine;
+    }
+    */
+  </style>
+</head>
+
+<body>
+  <p>
+    tekstas ir jo labai daug
+  </p>
+  <p>
+    tekstas ir jo labai daug
+  </p>
+  <div>
+    tekstas ir jo labai daug
+  </div>
+  <br>
+  <p>
+    tekstas ir jo labai daug
+  <p>
+
+  </p>
+  </p>
+
+  <form id="custom-form">
+    <input type="text" name="test-1">
+    <br>
+    <input type="text" name="test-2">
+    <input type="text" name="test-3">
+    <input type="time">
+    <input type="submit">
+  </form>
+
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+
+  <table>
+    <tr>
+      <th>Company</th>
+      <th>Contact</th>
+      <th>Country</th>
+    </tr>
+    <tr>
+      <td>Alfreds Futterkiste</td>
+      <td>Maria Anders</td>
+      <td>Germany</td>
+      <td>Germany</td>
+      <td>Germany</td>
+    </tr>
+  </table>
+
+  <button id="generate-name">Generate</button>
+  <button id="reset-name">Reset</button>
+
+  <style>
+    ul {
+      list-style-type: georgian;
+    }
+  </style>
+
+  <ul>
+    <li>test 1</li>
+    <li>test 2</li>
+    <li>test 3</li>
+  </ul>
+  <style>
+    ul>li {
+      background-color: antiquewhite;
+    }
+
+    ul>li:nth-child(odd) {
+      background-color: rgb(255, 205, 141);
+    }
+
+    ul>li:hover {
+      font-weight: bold;
+    }
+  </style>
+
+  <ul>
+  </ul>
+
+
+  <!-- <div></div> -->
+
+  <script>
+    const list = [
+      'Airidas',
+      'Danielius',
+      'Darius',
+      'Dovydas',
+      'Eimantas',
+      'Gediminas',
+      'Brigita',
+      'Justas',
+      'Motiejus',
+      'Otilija',
+      'Paulius',
+      'Vilius',
+    ];
+
+    let tempList = [...list];
+    document.getElementById('generate-name').onclick = function () {
+      const index = Math.floor(Math.random() * tempList.length);
+      const randomName = tempList[index];
+      tempList.splice(index, 1);
+      if (randomName) {
+        const elm = document.createElement('li');
+        elm.innerHTML = randomName;
+        document.querySelector('ul').appendChild(elm);
+      }
+    }
+
+    document.getElementById('reset-name').onclick = function () {
+      console.log(list)
+      tempList = [...list];
+      document.querySelector('ul').innerHTML = '';
+    }
+
+
+    document.getElementById('custom-form').onsubmit = function (e) {
+      e.preventDefault();
+    }
+  </script>
+</body>
+
 </html>

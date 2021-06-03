@@ -80,7 +80,7 @@
     <style>
       html {
         font-size: 18px;
-        background-image: url(/images/1.jpg);
+        /* background-image: url(/images/1.jpg); */
         background-attachment: fixed;
       }
 
@@ -101,7 +101,8 @@
       .klase2:hover {
         height: 110px;
       }
-      .klase2 > span {
+
+      .klase2>span {
         position: sticky;
         top: 0;
         background-color: brown;
@@ -211,8 +212,12 @@
       table {
         border: solid red 2px;
       }
+
+      p[data-collapse="test"] {
+        font-size: 84px;
+      }
     </style>
-    <p>Test text</p>
+    <p id="test" data-collapse="test">Test text</p>
     <ul>
       <li>qui in ea voluptate velit</li>
       <li>esse quam nihil</li>
@@ -295,6 +300,7 @@
       .pvz-5 input[type*=EX] {
         margin-left: 24px;
       }
+
       /* _________________ */
       /* a {
         text-decoration: none;
@@ -304,7 +310,7 @@
         color: red;
       } */
 
-      div > a:not([href="https://google.com"]) {
+      div>a:not([href="https://google.com"]) {
         color: red;
       }
     </style>

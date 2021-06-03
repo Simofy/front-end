@@ -4,10 +4,8 @@
 <head>
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Game</title>
+  <title>Task</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-  <script src='main.js'></script>
   <style>
     html,
     body {
@@ -22,44 +20,22 @@
       display: flex;
       flex-wrap: wrap;
       width: 900px;
-      perspective: 600px;
     }
 
     .card {
-      width: 150px;
-      height: 150px;
+      width: 200px;
+      height: 200px;
       margin: 8px;
       background-color: black;
-      color: white;
+      color: black;
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 64px;
-      transition: opacity 600ms, transform 600ms;
-      transform-style: preserve-3d;
-      transform: rotateY(180deg);
-      backface-visibility: black;
-    }
-
-    .card:after {
-      content: '';
-      right: 0px;
-      bottom: 0px;
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      background: black;
-      transform: rotateY(180deg);
-      transform-style: preserve-3d;
-      backface-visibility: hidden;
-    }
-
-    .open {
-      transform: rotateY(0);
+      transition: opacity 600ms;
     }
 
     .solved {
-      /* transform: rotateY(0); */
       background-color: brown;
       opacity: 0;
     }
@@ -93,21 +69,27 @@
       flex-direction: column;
     }
   </style>
+  <script>
+    window.addEventListener('load', function () {
+      const list = [];
+      for (let i = 0; i < 3; i += 1) {
+        const card = document.createElement('div');
+        list.push(card);
+        card.className = 'card';
+        card.addEventListener('click', function () {
+          for (let k = 0; k < list.length; k += 1) {
+            list[k].style.backgroundColor = 'black';
+          }
+          card.style.backgroundColor = 'green';
+        });
+        document.body.appendChild(card);
+      }
+    });
+  </script>
 </head>
 
 <body>
-  <div id="game">
 
-  </div>
-  <span id="score"></span>
-
-  <div class="congrats-container" style="display: none;">
-    <div>
-      <h1>CONGRATS</h1>
-      <p>You won!</p>
-      <button>Reset</button>
-    </div>
-  </div>
 </body>
 
 </html>

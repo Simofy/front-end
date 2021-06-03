@@ -1,0 +1,79 @@
+<html>
+  <body>
+    <div class="header">
+      <a href="/uzdoutys/index.html"><span>Uzduotys</span> </a>
+      <a href="/Form/index.html"><span>Form</span></a>
+      <a href="/Nd/index.html">
+          <span>N.D</span>
+          <div>
+              <span>1 Pamoka</span>
+              <span>2 Pamoka</span>
+              <span>3 Pamoka</span>
+              <span>4 Pamoka</span>
+              <span>5 Pamoka</span>
+          </div>
+      </a>
+      <a href="/GIA/index.html"><span>Great Idle Adventures</span></a>
+    </div>
+    <style>
+      .header {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 64px;
+          background-color: brown;
+          position: sticky;
+          top: 0;
+      }
+      .header>a {
+        position: relative;
+      }
+
+      .header>a>div {
+          opacity: 0;
+          position: absolute;
+          transition: all 200ms;
+      }
+    
+      .header>a>div>span {
+        display: block;
+      }
+    
+      .header>a:hover>div {
+          opacity: 1;
+          color: blue;
+          left: 0;
+          transform: rotate(30deg);
+      }
+    
+      .header>a>span {
+          display: inline-block;
+          transition: transform 800ms linear;
+      }
+    
+      .header>a {
+          background-color: rgb(124, 84, 161);
+          width: 124px;
+          margin: 0 12px;
+          height: 100%;
+          font-size: 24px;
+          color: greenyellow;
+          text-decoration: none;
+      }
+    
+      .header a:nth-child(odd):hover span {
+          transform: rotate(30deg) translate(0, 50%);
+          font-size: 35px;
+          transition: font-size 600ms;
+      }
+    
+      .header>a:nth-child(even):hover>span {
+          transform: translate(0, 100px);
+          color: black;
+          transition: color 600ms;
+      }
+    </style>
+  
+  </body>
+</html>
