@@ -1,0 +1,56 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.waterfall {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.waterfall span {
+  height: 24px;
+  width: 1px;
+  background-color: black;
+}
+
+.waterfall .node {
+  border: solid black 2px;
+  padding: 4px;
+  border-radius: 25%;
+}
+
+.waterfall .cluster {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.waterfall .cluster > div {
+  display: flex;
+  justify-content: center;
+  margin: 0 4px;
+  align-items: center;
+  flex-direction: column;
+}
+
+img {
+  width: auto;
+  margin: 26px 0;
+  object-fit: contain;
+}

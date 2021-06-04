@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Simple increment</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='/fe2-7/homework/style.css'>
+</head>
+
+<body>
+  <div class="container">
+    <a href="/fe2-7/homework">Go back</a>
+    <h2>Simple increment</h2>
+    <p>
+      Combine
+      <code>this.setState()</code>
+      and
+      <code>this.state.someIncrementValue</code>
+      to increment value that should be displayed.
+      <br>
+      Use this snippet for help:
+      <code>
+        onClick={() => {
+          this.setState({
+          });
+        }}
+      </code>
+      <br>
+    </p>
+    <p>
+      Don't forget to initialize state inside constructor OR as class variable.
+      <code>class { state={} }</code> || <code>constructor(props) { super(props); this.state={} }</code>
+    </p>
+    <h3>Example</h3>
+    <div class="waterfall">
+      <div class="node">App Component</div>
+      <span></span>
+      <div class="node">CustomComponent</div>
+    </div>
+    <img src="increment.gif" alt="increment gif">
+  </div>
+</body>
+
+</html>
+
+<!-- <div class="waterfall">
+  <div class="node">App Component</div>
+  <div class="cluster">
+    <div>
+      <span></span>
+      <div class="node">CustomComponent</div>
+    </div>
+    <div>
+      <span></span>
+      <div class="node">CustomComponent</div>
+      <span></span>
+      <div class="node">CustomComponent</div>
+      <div class="cluster">
+        <div>
+          <span></span>
+          <div class="node">CustomComponent</div>
+        </div>
+        <div>
+          <span></span>
+          <div class="node">CustomComponent</div>
+          <span></span>
+          <div class="node">CustomComponent</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
