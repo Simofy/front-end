@@ -13,6 +13,35 @@ module.exports = function (app, client) {
 
   const cannumoCollection = db.collection("cannumo");
 
+  const kaimasCollection = db.collection("kaimas");
+
+  app.get("/api/kaimas", async (req, res, next) => {
+  const { type } = req.query;
+    const data = await kaimasCollection
+      .find(
+        {
+          type,
+        },
+        {
+          sort: {
+            createdAt: -1,
+          },
+        }
+      )
+      .toArray();
+    res.json(data);
+  });
+
+  app.post("/api/kaimas", (req, res, next) => {
+    const { type, data } = req.body;
+    kaimasCollection.insertOne({
+      type,
+      createdAt: new Date(),
+      data,
+    });
+    res.json();
+  });
+
   boardStatusCollection.updateOne(
     {},
     {
@@ -47,18 +76,6 @@ module.exports = function (app, client) {
     res.json(messages);
   });
 
-  app.post("/api/cannumo", (req, res, next) => {
-    const { email, name, type, data } = req.body;
-    cannumoCollection.insertOne({
-      email,
-      name,
-      type,
-      data,
-      createdAt: new Date(),
-    });
-    res.json();
-  });
-
   app.post("/api/messages", (req, res, next) => {
     const { message, name } = req.body;
     if (message && name) {
@@ -68,6 +85,18 @@ module.exports = function (app, client) {
         name,
       });
     }
+    res.json();
+  });
+
+  app.post("/api/cannumo", (req, res, next) => {
+    const { email, name, type, data } = req.body;
+    cannumoCollection.insertOne({
+      email,
+      name,
+      type,
+      data,
+      createdAt: new Date(),
+    });
     res.json();
   });
 
