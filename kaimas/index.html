@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Pasibuvimas kaime su pirtimi</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+
+<body class="background">
+  <div class="container">
+    <div class="menu">
+      <h1>Kaimas</h1>
+      <p>Kviečiu jus pas save į kaimą.</p>
+      <p>Šį savaitgalį iš šeštadienio į sekmadienį.</p>
+      <p>
+        Ką reikia turėti prieš atvykstant:
+      <ul>
+        <li>Miegmaišį</li>
+        <li>Purškalą nuo uodų ir erkių</li>
+        <li>Viena kitą užkandį</li>
+        <li>Savo mėgstamą gėrimą</li>
+        <li>
+          Vieną nuotaiką:
+          <ul>
+            <li>Gerą</li>
+            <li>Blogą</li>
+            <li>Tobulą</li>
+          </ul>
+        </li>
+      </ul>
+      <p>
+        Kuom bus pasirūpinta:
+      <ul>
+        <li>
+          Miegojimo vietomis
+          <ul>
+            <li>6 palapinės (2 lauke, 4 palėpėje)</li>
+            <li>3 lovos</li>
+          </ul>
+        </li>
+        <li>Pirtimi</li>
+      </ul>
+      </p>
+      <p>
+        Kuom bus <u>galimai</u> pasirūpinta:
+      <ul>
+        <li>Alkoholiu</li>
+        <li>Maistu</li>
+      </ul>
+      </p>
+      </p>
+    </div>
+    <p>
+      Muzikos dėja nežadu vežti, nebent parašysit prie pageidavimų.
+    </p>
+    <div class="request">
+      <h3>Pageidavimai</h3>
+      <form id="request-form">
+        <textarea name="request" placeholder="Aš norių petardų..."></textarea>
+        <button type="submit">Noriu</button>
+      </form>
+      <div>
+      </div>
+    </div>
+    <div class="participant">
+      <h3>Kas dalyvaus</h3>
+      <form id="participant-form">
+        <input name="name" placeholder="Antanas Šmereika">
+        <button type="submit">Dalyvausiu</button>
+      </form>
+      <div>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.onload = function onLoad() {
+      const formRequest = document.getElementById('request-form')
+      const formParticipant = document.getElementById('participant-form')
+
+      const requestContainer = document.querySelector('.request > div')
+      const participantContainer = document.querySelector('.participant > div')
+
+      async function generateList(container, type) {
+        const response = await fetch(`https://simutis.dev/api/kaimas?type=${type}`)
+        const data = await response.json()
+        if (Array.isArray(data)) {
+          container.innerHTML = '';
+          const listElement = document.createElement('ul');
+          for (let i = 0; i < data.length; i += 1) {
+            const element = document.createElement('li');
+            element.innerText = data[i].data;
+            listElement.appendChild(element);
+          }
+          container.appendChild(listElement);
+        }
+      }
+
+      setInterval(() => {
+        generateList(requestContainer, 'request')
+        generateList(participantContainer, 'participant')
+      }, 100);
+
+      formRequest.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const { target: {
+          request
+        } } = e;
+        if (request.value) {
+          fetch('https://simutis.dev/api/kaimas', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              type: 'request',
+              data: request.value
+            }),
+          })
+          request.value = ''
+        } else {
+          alert('Durenli įrašyk ką nors')
+        }
+      })
+
+      formParticipant.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const { target: {
+          name
+        } } = e;
+        if (name.value) {
+          fetch('https://simutis.dev/api/kaimas', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              type: 'participant',
+              data: name.value
+            }),
+          })
+          name.value = ''
+        } else {
+          alert('Durenli įrašyk ką nors')
+        }
+      })
+
+    }
+  </script>
+</body>
+
+</html>

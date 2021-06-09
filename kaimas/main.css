@@ -1,0 +1,82 @@
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("JosefinSans.ttf") format("truetype");
+}
+
+html {
+  padding: 48px 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  font-size: 18px;
+  font-family: "Josefin Sans";
+}
+
+body {
+  padding: 0;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 400px;
+  flex: 1;
+  background-color: white;
+  padding: 0px 16px 16px 16px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  margin-bottom: 48px;
+}
+
+.background {
+  background-image: url(kaimas.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.container p,
+.container h1,
+.container h3 {
+  text-align: center;
+}
+
+#request-form,
+#participant-form {
+  display: flex;
+  flex-direction: row;
+  max-width: 260px;
+
+}
+
+#request-form > button,
+#participant-form > button {
+  border-radius: 0;
+  border: none;
+  background-color: #faf;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#request-form > textarea,
+#participant-form > input {
+  border-radius: 0;
+  padding: 8px;
+  border-width: 2px;
+  background-color: white;
+  color: #333;
+  flex: 1;
+  font-weight: bold;
+}
