@@ -22,6 +22,8 @@ app.listen(appPort, () => {
   console.log(new Date().toISOString(), `Hello ssh! Port: ${appPort}`);
 });
 
+
+
 app.use("/api/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(function (req, res, next) {

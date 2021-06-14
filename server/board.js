@@ -15,8 +15,43 @@ module.exports = function (app, client) {
 
   const kaimasCollection = db.collection("kaimas");
 
+  const incrementCollection = db.collection("incrementCollection");
+
+  setInterval(() => {
+    incrementCollection.updateOne(
+      {},
+      {
+        $setOnInsert: {
+          update: 0,
+        },
+        $inc: {
+          fakeIncrement: 1,
+        },
+      },
+      {
+        upsert: true,
+      }
+    );
+  }, 4000);
+
+  app.get("/api/generate-rectangle", async (req, res, next) => {
+    // const {  } = req.query;
+    const response = [];
+    const w = 38;
+    const h = 38;
+    const { fakeIncrement } = await incrementCollection.findOne();
+    for (let x = 0; x < w; x++) {
+      const row = [];
+      for (let y = 0; y < h; y++) {
+        row.push(Math.floor(Math.random() * 100));
+      }
+      response.push(row);
+    }
+    res.json({ updated: fakeIncrement, data: response });
+  });
+
   app.get("/api/kaimas", async (req, res, next) => {
-  const { type } = req.query;
+    const { type } = req.query;
     const data = await kaimasCollection
       .find(
         {
