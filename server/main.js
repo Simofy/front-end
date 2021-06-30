@@ -1,6 +1,6 @@
 require("dotenv").config();
 const MongoClient = require("mongodb").MongoClient;
-const { uniqueNamesGenerator, starWars } = require("unique-names-generator");
+const { uniqueNamesGenerator, starWars, animals, colors } = require("unique-names-generator");
 const express = require("express");
 const shortid = require("shortid");
 const dataLakes = require("./lakeData.json");
@@ -64,6 +64,14 @@ app.get("/api/generate-shopping-cart", (req, res, next) => {
       name: uniqueNamesGenerator({
         dictionaries: [starWars],
         style: "capital",
+      }),
+      animal: uniqueNamesGenerator({
+        dictionaries: [animals],
+        style: "capital",
+      }),
+      color: uniqueNamesGenerator({
+        dictionaries: [colors],
+        style: "lowerCase",
       }),
       price: Math.random() * 100,
       vegan: Math.random() > 0.5,
